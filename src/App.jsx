@@ -1,26 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import React from 'react';
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
+const { Header, Content, Sider } = Layout;
+//add different names to menu items
+const items1 = [
+  {
+    key: '1',
+    label: 'Home'
+  },
+  {
+    key: '2',
+    label: 'Donation'
+  },
+  {
+    key: '3',
+    label: 'About'
+  }
+];
+const items2 = [
+  {
+    key: '1',
+    icon: <NotificationOutlined />,
+    label: 'nav 1',
+  },
+  {
+    key: '2',
+    icon: <LaptopOutlined />,
+    label: 'nav 2',
+  },
+];
+const App = () => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Dont be silent!</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          help count is {count}
-        </button>
+    <Layout>
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['1']}
+          items={items1}
+          style={{ flex: 1, minWidth: 0 }}
+        />
+      </Header>
+      <Layout>
+        <Sider width={200} style={{ background: colorBgContainer }}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%', borderRight: 0 }}
+            items={items2}
+          />
+        </Sider>
+        <Layout style={{ padding: '0 24px 24px' }}>
+          <Content
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 280,
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
+          >
+            <p>Helo world, this is project to help people to avoid abuse</p>
+            Content
+            <div className="card">
+
         <p>
           Thanks you to joining out community
         </p>
@@ -28,8 +76,10 @@ function App() {
       <p className="read-the-docs">
         Click on the Our logos to learn more
       </p>
-    </>
-  )
-}
-
-export default App
+          </Content>
+        </Layout>
+      </Layout>
+    </Layout>
+  );
+};
+export default App;
