@@ -1,6 +1,7 @@
 import React from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
 //add different names to menu items
 const items1 = [
@@ -29,6 +30,7 @@ const items2 = [
     label: 'nav 2',
   },
 ];
+
 const App = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -82,4 +84,16 @@ const App = () => {
     </Layout>
   );
 };
-export default App;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <div>404! Error, go back to site <Link to="/">Home</Link></div>,
+  },
+]);
+
+const Root = () => {
+  return <RouterProvider router={router} />;
+};
+
+export default Root;
