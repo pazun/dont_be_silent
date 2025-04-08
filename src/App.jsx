@@ -2,6 +2,7 @@ import React from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
+import Counter from './components/Counter';
 const { Header, Content, Sider } = Layout;
 //add different names to menu items
 const items1 = [
@@ -70,6 +71,7 @@ const App = () => {
             <p>Helo world, this is project to help people to avoid abuse</p>
             Content
             <div className="card">
+            <Counter></Counter>
 
         <p>
           Thanks you to joining out community
