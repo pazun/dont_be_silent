@@ -1,41 +1,34 @@
 import React from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
+import { Layout, Menu, theme } from 'antd';
+import { createBrowserRouter, RouterProvider, Link, Outlet, useNavigate } from 'react-router-dom';
 import Counter from './components/Counter';
-const { Header, Content, Sider } = Layout;
+import About from './components/About';
+import Donation from './components/Donation';
+const { Header, Content } = Layout;
 //add different names to menu items
 const items1 = [
   {
-    key: '1',
+    key: '/',
     label: 'Home'
   },
   {
-    key: '2',
+    key: '/donation',
     label: 'Donation'
   },
   {
-    key: '3',
+    key: '/about',
     label: 'About'
   }
 ];
-const items2 = [
-  {
-    key: '1',
-    icon: <NotificationOutlined />,
-    label: 'nav 1',
-  },
-  {
-    key: '2',
-    icon: <LaptopOutlined />,
-    label: 'nav 2',
-  },
-];
-
 const App = () => {
+  const navigate = useNavigate();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const handleMenuClick = (e) => {
+    navigate(e.key);
+  };
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
@@ -46,51 +39,58 @@ const App = () => {
           defaultSelectedKeys={['1']}
           items={items1}
           style={{ flex: 1, minWidth: 0 }}
+          onClick={handleMenuClick}
         />
       </Header>
-      <Layout>
-        <Sider width={200} style={{ background: colorBgContainer }}>
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            style={{ height: '100%', borderRight: 0 }}
-            items={items2}
-          />
-        </Sider>
-        <Layout style={{ padding: '0 24px 24px' }}>
-          <Content
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            <p>Helo world, this is project to help people to avoid abuse</p>
-            Content
-            <div className="card">
-            <Counter></Counter>
-
-        <p>
-          Thanks you to joining out community
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Our logos to learn more
-      </p>
-          </Content>
-        </Layout>
+      <Layout style={{ padding: '0 24px 24px' }}>
+        <Content
+          style={{
+            padding: 24,
+            margin: 0,
+            minHeight: 280,
+            background: colorBgContainer,
+            borderRadius: borderRadiusLG,
+          }}
+        >
+          <Outlet />
+        </Content>
       </Layout>
     </Layout>
   );
 };
+const HomePage = () => (
+  <div>
+    <h1>Welcome to Don't Be Silent</h1>
+    <p>This project helps people to avoid abuse</p>
+    <div className="card">
+      <Counter />
+      <p>Thank you for joining our community</p>
+    </div>
+    <p className="read-the-docs">
+      Click on our logos to learn more
+    </p>
+  </div>
+);
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <div>404! Error, go back to site <Link to="/">Home</Link></div>,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/donation",
+        element: <Donation />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
   },
 ]);
 
