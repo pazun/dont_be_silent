@@ -5,18 +5,21 @@ import { PhoneOutlined } from '@ant-design/icons';
 import Logo from '/Logo.svg';
 import styles from './styles/Header.module.css';
 import Counter from './components/Counter';
-import About from './components/About';
-import Donation from './components/Donation';
-import DomesticAbuse from './components/DomesticAbuse';
-import Support from './components/Support';
-import WhatWeDo from './components/WhatWeDo';
-import Call from './components/EmergencyHelp';
-import EmergencyHelp from './components/EmergencyHelp';
+import AppFooter from './components/Footer';
+import About from './pages/About';
+import Donation from './pages/Donation';
+import DomesticAbuse from './pages/DomesticAbuse';
+import Support from './pages/Support';
+import WhatWeDo from './pages/WhatWeDo';
+import Call from './pages/EmergencyHelp';
+import SignIn from './pages/SignInDonation';
+import EmergencyHelp from './pages/EmergencyHelp';
+import HomePage from './pages/HomePage';
 const { Header, Content } = Layout;
 
 const items1 = [
   {
-    key: '/',
+    key: '/emergency-help',
     label: 'I need help now',
   },
   {
@@ -48,7 +51,8 @@ const customTheme = {
 
 const App = () => {
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const location = window.location.pathname;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
 
   useEffect(() => {
     const handleResize = () => {
@@ -146,7 +150,7 @@ const App = () => {
             <Menu
               theme="light"
               mode="horizontal"
-              defaultSelectedKeys={['1']}
+              selectedKeys={[location]}
               items={items1}
               style={{ background: 'transparent', justifyContent: 'flex-end', border: 'none', fontSize: '16px' }}
               onClick={handleMenuClick}
@@ -166,23 +170,11 @@ const App = () => {
             <Outlet />
           </Content>
         </Layout>
+        <AppFooter />
       </Layout>
     </ConfigProvider>
   );
 };
-const HomePage = () => (
-  <div>
-    <h1>Welcome to Don't Be Silent</h1>
-    <p>This project helps people to avoid abuse</p>
-    <div className="card">
-      <Counter />
-      <p>Thank you for joining our community</p>
-    </div>
-    <p className="read-the-docs">
-      Click on our logos to learn more
-    </p>
-  </div>
-);
 
 const router = createBrowserRouter([
   {
@@ -215,12 +207,15 @@ const router = createBrowserRouter([
         element: <WhatWeDo />,
       },
       {
-        path: "/EmergencyHelp",
-        element: <EmergencyHelp></EmergencyHelp>
+        path: "/emergency-help",
+        element: <EmergencyHelp />
       },
       {
-        path: "/Call",
-        element: <div>Call us now 8(808)040444</div>,
+        path: "/call",
+        element: <EmergencyHelp />
+      },
+      {        path: "/signin",
+        element: <SignIn />
       }
     ],
   },

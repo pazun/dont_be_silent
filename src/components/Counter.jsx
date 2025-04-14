@@ -8,7 +8,7 @@ const Counter = () => {
 
   return (
     <div style={{ textAlign: 'center', padding: '20px' }}>
-      <h2>Counter: {count}</h2>
+      <h2>Donate: ${count}</h2>
       <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
         <button onClick={() => dispatch(decrement())}>-</button>
         <button onClick={() => dispatch(increment())}>+</button>

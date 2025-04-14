@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout, Typography, Card, Row, Col, Timeline } from 'antd';
 import { SafetyCertificateOutlined, TeamOutlined, BulbOutlined, HeartOutlined } from '@ant-design/icons';
+import Counter from '../components/Counter';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -84,7 +85,9 @@ const WhatWeDo = () => {
                       <Paragraph>
                         Policy advocacy, research, and public awareness campaigns
                       </Paragraph>
+                      <Counter />
                     </>
+                    
                   ),
                 },
               ]}
