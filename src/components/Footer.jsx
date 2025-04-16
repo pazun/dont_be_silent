@@ -20,24 +20,24 @@ const AppFooter = () => {
           <Col xs={24} sm={6}>
             <Title level={5}>Company</Title>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link to="/about">About Us</Link>
-              <Link to="/support">Support Us</Link>
-              <Link to="/what-we-do">What We Do</Link>
+              <Link to="/about" style={{ color: '#151515' }}>About Us</Link>
+              <Link to="/support" style={{ color: '#151515' }}>Support Us</Link>
+              <Link to="/what-we-do" style={{ color: '#151515' }}>What We Do</Link>
             </div>
           </Col>
 
           <Col xs={24} sm={6}>
             <Title level={5}>Quick Links</Title>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link to="/emergency-help">Emergency Help</Link>
-              <Link to="/about-abuse">About Domestic Abuse</Link>
-              <Link to="/donation">Make a Donation</Link>
+              <Link to="/emergency-help" style={{ color: '#151515' }}>Emergency Help</Link>
+              <Link to="/about-abuse" style={{ color: '#151515' }}>About Domestic Abuse</Link>
+              <Link to="/donation" style={{ color: '#151515' }}>Make a Donation</Link>
             </div>
           </Col>
 
           <Col xs={24} sm={6}>
             <Title level={5}>24/7 Helpline</Title>
-            <Text strong style={{ fontSize: '18px', color: '#DA2864' }}>8(808)040444</Text>
+            <Text strong style={{ fontSize: '18px', color: '#DA2864' }}>8 707 520 05 19</Text>
             <Text style={{ display: 'block', marginTop: '10px' }}>Free, confidential support available 24/7</Text>
           </Col>
         </Row>
@@ -49,13 +49,13 @@ const AppFooter = () => {
           <Col>
             <div style={{ display: 'flex', gap: '20px' }}>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <LinkedinOutlined style={{ fontSize: '20px' }} />
+                <LinkedinOutlined style={{ fontSize: '20px', color: '#DA2864' }} />
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <FacebookOutlined style={{ fontSize: '20px' }} />
+                <FacebookOutlined style={{ fontSize: '20px', color: '#DA2864' }} />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <TwitterOutlined style={{ fontSize: '20px' }} />
+                <TwitterOutlined style={{ fontSize: '20px', color: '#DA2864' }} />
               </a>
             </div>
           </Col>
