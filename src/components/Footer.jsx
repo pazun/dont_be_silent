@@ -44,7 +44,7 @@ const AppFooter = () => {
 
         <Row justify="space-between" align="middle" style={{ marginTop: '40px', borderTop: '1px solid #e8e8e8', paddingTop: '20px' }}>
           <Col>
-            <Text>Copyright © 2024 Don't Be Silent. All Rights Reserved</Text>
+            <Text>Copyright © 2025 Don't Be Silent. All Rights Reserved</Text>
           </Col>
           <Col>
             <div style={{ display: 'flex', gap: '20px' }}>

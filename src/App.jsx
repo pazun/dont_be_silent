@@ -100,7 +100,7 @@ const App = () => {
                 justifyContent: isMobile ? 'center' : 'flex-start'
               }}>
                 <PhoneOutlined style={{ fontSize: '24px', color: '#DA2864', marginRight: '8px' }} />
-                <Typography.Text strong style={{ color: '#DA2864', fontSize: '20px' }}>8(808)040444</Typography.Text>
+                <Typography.Text strong style={{ color: '#DA2864', fontSize: '20px' }}>8 707 520 05 19</Typography.Text>
               </div>
               <div style={{
                 display: 'flex',

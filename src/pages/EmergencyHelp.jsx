@@ -23,7 +23,7 @@ const EmergencyHelp = () => {
             }
             bordered={false}
           >
-            <Title level={3} style={{ color: '#DA2864' }}>8(808)040444</Title>
+            <Title level={3} style={{ color: '#DA2864' }}>8 707 520 05 19</Title>
             <Paragraph>
               Our trained support workers are available 24/7 to:
               <ul>
