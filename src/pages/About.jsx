@@ -1,65 +1,110 @@
-import React from 'react';
-import { Layout, Typography } from 'antd';
-import { LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import { Menu, theme } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Layout, Typography, Card, Row, Col, Pagination, Spin } from 'antd';
+import { BookOutlined } from '@ant-design/icons';
+import QuotesList from '../components/QuotesList';
 
-const { Content, Sider } = Layout;
+const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
-const items2 = [
-  {
-    key: '1',
-    icon: <NotificationOutlined />,
-    label: 'nav 1',
-  },
-  {
-    key: '2',
-    icon: <LaptopOutlined />,
-    label: 'nav 2',
-  },
-];
-
 const About = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  const [quotes, setQuotes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const pageSize = 6;
+
+  useEffect(() => {
+    fetchQuotes();
+  }, [currentPage]);
+
+  const fetchQuotes = async () => {
+    try {
+      setLoading(true);
+      const skip = (currentPage - 1) * pageSize;
+      const response = await fetch(`https://dummyjson.com/quotes?limit=${pageSize}&skip=${skip}`);
+      const data = await response.json();
+      setQuotes(data.quotes);
+      setTotal(data.total);
+    } catch (error) {
+      console.error('Error fetching quotes:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
-    <Layout>
-      <Sider width={150} style={{ background: colorBgContainer }}>
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          style={{ height: '100%', borderRight: 1 }}
-          items={items2}
-        />
-      </Sider>
-      <Content style={{ paddingLeft: 24 }}>
-        <Typography>
-          <Title level={2}>About Don't Be Silent</Title>
-          <Paragraph>
-            Don't Be Silent is a platform dedicated to supporting individuals affected by abuse
-            and creating a safer community for everyone. Our mission is to provide resources,
-            support, and a voice to those who need it most.
-          </Paragraph>
-          <Paragraph>
-            We believe that by breaking the silence around abuse, we can create positive
-            change and help prevent future incidents. Our platform offers various resources
-            and support mechanisms to help individuals find the assistance they need.
-          </Paragraph>
-          <Title level={3}>Our Goals</Title>
-          <Paragraph>
-            <ul>
-              <li>Provide a safe space for survivors to share their stories</li>
-              <li>Connect individuals with professional support services</li>
-              <li>Raise awareness about different forms of abuse</li>
-              <li>Build a supportive community for healing and growth</li>
-            </ul>
-          </Paragraph>
-        </Typography>
-      </Content>
-    </Layout>
+    <Content style={{ padding: '24px', minHeight: 280 }}>
+      <Typography>
+        <Title level={2}>About Don't Be Silent</Title>
+        <Paragraph>
+          Don't Be Silent is dedicated to supporting those affected by domestic abuse.
+          Our mission is to provide a safe space for survivors, raise awareness about
+          domestic abuse, and work towards creating a society free from violence.
+        </Paragraph>
+      </Typography>
+
+      <Title level={3} style={{ marginTop: '24px' }}>
+        <BookOutlined /> What people think about us
+      </Title>
+
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '40px' }}>
+          <Spin size="large" />
+          <Spin size="large" />
+          <Spin size="large" />
+          <Spin size="large" />
+          <Spin size="large" />
+          <Spin size="large" />
+          <Spin size="large" />
+          <Spin size="large" />
+          <Spin size="large" />
+        </div>
+      ) : (
+        <>
+          <QuotesList quotes={quotes} />
+          <div style={{ textAlign: 'center', marginTop: '24px' }}>
+            <Pagination
+              current={currentPage}
+              total={total}
+              pageSize={pageSize}
+              onChange={handlePageChange}
+              showSizeChanger={false}
+            />
+          </div>
+        </>
+      )}
+
+      <Card style={{ marginTop: '24px', background: '#FFF4F4' }}>
+        <Title level={4}>Our Values</Title>
+        <Row gutter={[16, 16]}>
+          <Col xs={24} md={8}>
+            <Title level={5}>Support</Title>
+            <Paragraph>
+              We provide comprehensive support services to help survivors rebuild their lives
+              and find safety, healing, and hope.
+            </Paragraph>
+          </Col>
+          <Col xs={24} md={8}>
+            <Title level={5}>Education</Title>
+            <Paragraph>
+              Through education and awareness programs, we work to prevent domestic abuse
+              and promote healthy relationships.
+            </Paragraph>
+          </Col>
+          <Col xs={24} md={8}>
+            <Title level={5}>Advocacy</Title>
+            <Paragraph>
+              We advocate for policies and practices that protect survivors and hold
+              abusers accountable.
+            </Paragraph>
+          </Col>
+        </Row>
+      </Card>
+    </Content>
   );
 };
 

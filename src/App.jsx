@@ -31,8 +31,8 @@ const items1 = [
     label: 'I want to support'
   },
   {
-    key: '/what-we-do',
-    label: 'What we do'
+    key: '/about',
+    label: 'About Us'
   }
 ];
 
