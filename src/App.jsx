@@ -16,6 +16,7 @@ import SignIn from './pages/SignInDonation';
 import EmergencyHelp from './pages/EmergencyHelp';
 import HomePage from './pages/HomePage';
 import SignUp from './pages/signup';
+import DonationHistory from './pages/DonationHistory';
 const { Header, Content } = Layout;
 
 const items1 = [
@@ -177,6 +178,9 @@ const App = () => {
   );
 };
 
+// Add this import at the top
+import ProtectedRoute from './components/ProtectedRoute';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -189,7 +193,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/donation",
-        element: <Donation />,
+        element: <ProtectedRoute><Donation /></ProtectedRoute>,
+      },
+      {
+        path: "/donation-history",
+        element: <DonationHistory />,
       },
       {
         path: "/about",

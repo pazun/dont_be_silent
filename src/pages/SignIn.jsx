@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onFinish = async (values) => {
     setLoading(true);
@@ -25,7 +26,8 @@ const SignIn = () => {
       if (response.ok) {
         message.success('Login successful!');
         localStorage.setItem('token', data.token);
-        navigate('/');
+        const from = location.state?.from || '/';
+        navigate(from);
       } else {
         message.error(data.error || 'Login failed');
       }
