@@ -23,6 +23,8 @@ const AppFooter = () => {
               <Link to="/about" style={{ color: '#151515' }}>About Us</Link>
               <Link to="/support" style={{ color: '#151515' }}>Support Us</Link>
               <Link to="/what-we-do" style={{ color: '#151515' }}>What We Do</Link>
+              <Link to="/SignIn" style={{ color: '#151515' }}>Sign in</Link>
+              <Link to="/SignUp" style={{ color: '#151515' }}>Sign up</Link>
             </div>
           </Col>
 

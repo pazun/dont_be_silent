@@ -15,7 +15,7 @@ import Call from './pages/EmergencyHelp';
 import SignIn from './pages/SignIn';
 import EmergencyHelp from './pages/EmergencyHelp';
 import HomePage from './pages/HomePage';
-import SignUp from './pages/signup';
+import SignUp from './pages/SignUp';
 import DonationHistory from './pages/DonationHistory';
 const { Header, Content } = Layout;
 
