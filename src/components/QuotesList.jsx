@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Card, Typography, Empty } from 'antd';
+import PropTypes from 'prop-types';
 
 const { Paragraph } = Typography;
 
@@ -26,5 +27,14 @@ const QuotesList = ({ quotes }) => {
   );
 };
 
+QuotesList.propTypes = {
+  quotes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      quote: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default QuotesList;
