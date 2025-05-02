@@ -131,7 +131,7 @@ const App = () => {
                 <Button 
                   shape="round" 
                   size="large" 
-                  onClick={() => navigate('/donation')}
+                  onClick={() => navigate('/signup')}
                   style={{
                     background: customTheme.token.colorDonate,
                     border: 'none',
