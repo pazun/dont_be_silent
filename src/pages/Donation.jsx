@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout, Typography, Card, Row, Col, Button, Form, Input, Tabs, message } from 'antd';
 import { useSelector } from 'react-redux';
 
@@ -7,8 +7,32 @@ const { Title, Paragraph } = Typography;
 
 const Donation = () => {
   const [selectedAmount, setSelectedAmount] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
   const donationAmounts = [100, 500, 1000, 1500, 5000, 10000];
   const counterValue = useSelector((state) => state.counter.value);
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const response = await fetch('http://localhost:3000/api/auth/me', {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          const data = await response.json();
+          if (data) {
+            setUserInfo(data);
+          }
+        } catch (error) {
+          console.error('Error fetching user info:', error);
+        }
+      }
+    };
+
+    fetchUserInfo();
+  }, []);
 
   const handleAmountSelect = (amount) => {
     setSelectedAmount(amount);
@@ -18,9 +42,19 @@ const Donation = () => {
     setSelectedAmount(counterValue);
   };
 
-  const onFinish = async (values) => {
+  const onFinish = async () => {
+    if (!selectedAmount) {
+      message.error('Please select or enter a donation amount');
+      return;
+    }
+
     try {
       const token = localStorage.getItem('token');
+      if (!token) {
+        message.error('Please sign in to make a donation');
+        return;
+      }
+
       const response = await fetch('http://localhost:3000/api/donations', {
         method: 'POST',
         headers: {
@@ -29,9 +63,7 @@ const Donation = () => {
         },
         body: JSON.stringify({
           amount: selectedAmount,
-          user_id: userInfo?.id,
-          name: userInfo?.name,
-          email: userInfo?.email
+          type: 'one-time'
         })
       });
 
@@ -50,12 +82,12 @@ const Donation = () => {
 
   const items = [
     {
-      key: 'monthly',
-      label: 'Give Monthly',
+      key: 'zero',
+      label: 'With zero fees',
       children: (
         <div>
           <div style={{ marginBottom: '24px' }}>
-            <Title level={4} style={{ marginBottom: '16px' }}>1.Amount  2.Details  3.Payment</Title>
+            <Title level={4} style={{ marginBottom: '16px' }}>Enter a donation</Title>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '16px' }}>
               {donationAmounts.map((amount) => (
                 <Button
@@ -109,9 +141,9 @@ const Donation = () => {
       ),
     },
     {
-      key: 'once',
-      label: 'Give Just Once',
-      children: 'Give Just Once Content',
+      key: 'withcom',
+      label: 'With fees',
+      children: 'You can pay without commissions!',
     },
   ];
 

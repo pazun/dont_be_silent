@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, message } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Form, Input, Button, message, Spin } from 'antd';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const SignIn = () => {
   const [loading, setLoading] = useState(false);
@@ -29,58 +29,61 @@ const SignIn = () => {
         const from = location.state?.from || '/';
         navigate(from);
       } else {
-        message.error(data.error || 'Login failed');
+        message.error(data.error || 'Login failed. Please check your credentials.');
       }
     } catch (error) {
-      message.error('Failed to connect to server');
+      message.error('Failed to connect to server. Please check your internet connection.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '40px auto', padding: '20px' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '24px' }}>Sign In</h2>
-      <Form
-        name="signin"
-        onFinish={onFinish}
-        layout="vertical"
-        requiredMark={false}
-      >
-        <Form.Item
-          name="email"
-          label="Email"
-          rules={[
-            { required: true, message: 'Please input your email!' },
-            { type: 'email', message: 'Please enter a valid email!' }
-          ]}
+    <Spin spinning={loading} tip="Signing in...">
+      <div style={{ maxWidth: '400px', margin: '40px auto', padding: '20px' }}>
+        <h2 style={{ textAlign: 'center', marginBottom: '24px' }}>Sign In</h2>
+        <Form
+          name="signin"
+          onFinish={onFinish}
+          layout="vertical"
+          requiredMark={false}
         >
-          <Input size="large" />
-        </Form.Item>
-
-        <Form.Item
-          name="password"
-          label="Password"
-          rules={[
-            { required: true, message: 'Please input your password!' }
-          ]}
-        >
-          <Input.Password size="large" />
-        </Form.Item>
-
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            size="large"
-            block
-            loading={loading}
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[
+              { required: true, message: 'Please input your email!' },
+              { type: 'email', message: 'Please enter a valid email!' }
+            ]}
           >
-            Sign In
-          </Button>
-        </Form.Item>
-      </Form>
-    </div>
+            <Input size="large" />
+          </Form.Item>
+
+          <Form.Item
+            name="password"
+            label="Password"
+            rules={[
+              { required: true, message: 'Please input your password!' },
+              { min: 6, message: 'Password must be at least 6 characters!' }
+            ]}
+          >
+            <Input.Password size="large" />
+          </Form.Item>
+
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              size="large"
+              block
+              loading={loading}
+            >
+              Sign In
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    </Spin>
   );
 };
 
