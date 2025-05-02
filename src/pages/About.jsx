@@ -1,36 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Layout, Typography, Card, Row, Col, Pagination, Spin } from 'antd';
 import { BookOutlined } from '@ant-design/icons';
 import QuotesList from '../components/QuotesList';
+import { useGetQuotesQuery } from '../store/quotesApi';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 const About = () => {
-  const [quotes, setQuotes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [total, setTotal] = useState(0);
   const pageSize = 6;
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const skip = (currentPage - 1) * pageSize;
 
-  useEffect(() => {
-    fetchQuotes();
-  }, [currentPage]);
-
-  const fetchQuotes = async () => {
-    try {
-      setLoading(true);
-      const skip = (currentPage - 1) * pageSize;
-      const response = await fetch(`https://dummyjson.com/quotes?limit=${pageSize}&skip=${skip}`);
-      const data = await response.json();
-      setQuotes(data.quotes);
-      setTotal(data.total);
-    } catch (error) {
-      console.error('Error fetching quotes:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { data, isLoading } = useGetQuotesQuery({ limit: pageSize, skip });
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -51,7 +33,7 @@ const About = () => {
         <BookOutlined /> What people think about us
       </Title>
 
-      {loading ? (
+      {isLoading ? (
         <div style={{ textAlign: 'center', padding: '40px' }}>
           <Spin size="large" />
           <Spin size="large" />
@@ -65,11 +47,11 @@ const About = () => {
         </div>
       ) : (
         <>
-          <QuotesList quotes={quotes} />
+          <QuotesList quotes={data?.quotes || []} />
           <div style={{ textAlign: 'center', marginTop: '24px' }}>
             <Pagination
               current={currentPage}
-              total={total}
+              total={data?.total || 0}
               pageSize={pageSize}
               onChange={handlePageChange}
               showSizeChanger={false}

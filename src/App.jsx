@@ -15,7 +15,7 @@ import Call from './pages/EmergencyHelp';
 import SignIn from './pages/SignInDonation';
 import EmergencyHelp from './pages/EmergencyHelp';
 import HomePage from './pages/HomePage';
-import SignUp from './pages/SignUp';
+import SignUp from './pages/signup';
 const { Header, Content } = Layout;
 
 const items1 = [
@@ -132,7 +132,7 @@ const App = () => {
                 <Button 
                   shape="round" 
                   size="large" 
-                  onClick={() => navigate('/signup')}
+                  onClick={() => navigate('/donation')}
                   style={{
                     background: customTheme.token.colorDonate,
                     border: 'none',
@@ -200,14 +200,6 @@ const router = createBrowserRouter([
         element: <DomesticAbuse />,
       },
       {
-        path: "/signup",
-        element: <SignUp />,
-      },
-      {
-        path: "/signin",
-        element: <SignIn />,
-      },
-      {
         path: "/support",
         element: <Support />,
       },
@@ -226,8 +218,9 @@ const router = createBrowserRouter([
       {        path: "/signin",
         element: <SignIn />
       },
-      {        path: "/signup",
-        element: <SignUp />
+      {
+        path: "/signup",
+        element: <SignUp />,
       }
     ],
   },
