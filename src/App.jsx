@@ -20,6 +20,7 @@ import HomePage from './pages/HomePage';
 import SignUp from './pages/SignUp';
 import DonationHistory from './pages/DonationHistory';
 import { customTheme } from './theme/theme';
+import ErrorPage from './pages/ErrorPage';
 
 const { Content } = Layout;
 
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <div>404! Error, go back to site <Link to="/">Home</Link></div>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
