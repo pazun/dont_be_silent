@@ -9,6 +9,7 @@ const User = () => {
   const [userInfo, setUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [form] = Form.useForm();
+  const [nameForm] = Form.useForm();
 
   useEffect(() => {
     fetchUserInfo();
@@ -74,6 +75,39 @@ const User = () => {
     }
   };
 
+  const onChangeName = async (values) => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        message.error('Please sign in to change your name');
+        return;
+      }
+
+      const response = await fetch('http://localhost:3000/api/auth/change-name', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          newName: values.newName
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        message.success('Name changed successfully');
+        setUserInfo({ ...userInfo, name: values.newName });
+        nameForm.resetFields();
+      } else {
+        message.error(data.error || 'Failed to change name');
+      }
+    } catch (error) {
+      message.error('Failed to connect to server');
+    }
+  };
+
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
       <Spin spinning={loading}>
@@ -86,6 +120,37 @@ const User = () => {
               <p><Text strong>Email:</Text> {userInfo.email}</p>
             </>
           )}
+        </Card>
+
+        <Card title="Change Name" style={{ marginBottom: '24px' }}>
+          <Form
+            form={nameForm}
+            name="changeName"
+            onFinish={onChangeName}
+            layout="vertical"
+            requiredMark={false}
+          >
+            <Form.Item
+              name="newName"
+              label="New Name"
+              rules={[
+                { required: true, message: 'Please input your new name!' },
+                { min: 2, message: 'Name must be at least 2 characters!' }
+              ]}
+            >
+              <Input 
+                prefix={<UserOutlined />}
+                size="large"
+                placeholder="Enter your new name"
+              />
+            </Form.Item>
+
+            <Form.Item>
+              <Button type="primary" htmlType="submit" size="large">
+                Change Name
+              </Button>
+            </Form.Item>
+          </Form>
         </Card>
 
         <Card title="Change Password">
