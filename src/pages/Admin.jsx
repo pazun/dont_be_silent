@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Typography, Card, Row, Col, Statistic, Table, Spin } from 'antd';
+import { Layout, Typography, Card, Row, Col, Statistic, Table, Spin, Button, message } from 'antd';
 import { UserOutlined, DollarOutlined, HeartOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
@@ -103,8 +103,49 @@ const Admin = () => {
       title: 'Type',
       dataIndex: 'type',
       key: 'type'
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (_, record) => (
+        <Button 
+          type="link" 
+          danger
+          onClick={() => handleDelete(record.id)}
+        >
+          Delete
+        </Button>
+      )
     }
   ];
+
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        message.error('Authentication required');
+        return;
+      }
+
+      const response = await fetch(`http://localhost:3000/api/donations/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        message.success('Donation deleted successfully');
+        // Refresh the data
+        fetchAdminData();
+      } else {
+        message.error('Failed to delete donation');
+      }
+    } catch (error) {
+      console.error('Error deleting donation:', error);
+      message.error('Failed to delete donation');
+    }
+  };
 
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>

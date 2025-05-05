@@ -26,7 +26,7 @@ const Notifications = () => {
                 window.location.href = '/donation';
               }
             });
-          }, 60000);
+          }, 20000);
 
           return () => clearInterval(notificationInterval);
         }
