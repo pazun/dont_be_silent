@@ -37,13 +37,16 @@ const DonationHistory = () => {
       title: 'Date',
       dataIndex: 'donation_date',
       key: 'date',
-      render: (date) => new Date(date).toLocaleDateString()
+      render: (date) => new Date(date).toLocaleDateString(),
+      sorter: (a, b) => new Date(a.donation_date) - new Date(b.donation_date),
+      defaultSortOrder: 'descend'
     },
     {
       title: 'Amount',
       dataIndex: 'amount',
       key: 'amount',
-      render: (amount) => `${amount}₸`
+      render: (amount) => `${amount}₸`,
+      sorter: (a, b) => a.amount - b.amount
     },
     {
       title: 'Type',
