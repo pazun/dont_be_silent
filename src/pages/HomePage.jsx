@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Counter from '../components/Counter';
-import { Layout, Typography, Card, Row, Col, Button } from 'antd';
+import { Layout, Typography, Card, Row, Col, Button, Avatar } from 'antd';
 import { HeartOutlined, UserOutlined } from '@ant-design/icons';
 
 const { Content } = Layout;
@@ -11,6 +11,7 @@ const HomePage = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
+  const [userImage, setUserImage] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -25,6 +26,7 @@ const HomePage = () => {
         if (data.name) {
           setIsLoggedIn(true);
           setUsername(data.name);
+          setUserImage(data.profile_image ? `http://localhost:3000${data.profile_image}` : '');
         }
       })
       .catch(err => {
@@ -70,10 +72,15 @@ const HomePage = () => {
                   type="primary" 
                   block 
                   size="large" 
-                  style={{ marginBottom: '16px' }}
-                  icon={<UserOutlined />}
+                  style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                   onClick={() => navigate('/user')}
                 >
+                  <Avatar 
+                    size="small" 
+                    src={userImage} 
+                    icon={<UserOutlined />}
+                    style={{ marginRight: '8px' }}
+                  />
                   {username}
                 </Button>
                 <Button 
