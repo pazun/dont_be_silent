@@ -106,6 +106,17 @@ const SignUp = () => {
             Sign Up
           </Button>
         </Form.Item>
+
+        <div style={{ textAlign: 'center', marginTop: '16px' }}>
+          <span style={{ marginRight: '8px' }}>Already have an account?</span>
+          <Button 
+            type="link" 
+            onClick={() => navigate('/signin')}
+            style={{ padding: 0 }}
+          >
+            Sign In
+          </Button>
+        </div>
       </Form>
     </div>
   );

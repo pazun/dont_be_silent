@@ -18,6 +18,8 @@ import SignIn from './pages/SignIn';
 import EmergencyHelp from './pages/EmergencyHelp';
 import HomePage from './pages/HomePage';
 import SignUp from './pages/SignUp';
+import User from './pages/User';
+import Admin from './pages/Admin';
 import DonationHistory from './pages/DonationHistory';
 import { customTheme } from './theme/theme';
 import ErrorPage from './pages/ErrorPage';
@@ -107,6 +109,14 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/user",
+        element: <ProtectedRoute><User /></ProtectedRoute>,
+      },
+      {
+        path: "/admin",
+        element: <ProtectedRoute><Admin /></ProtectedRoute>,
       }
     ],
   },

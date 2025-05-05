@@ -15,7 +15,6 @@ const HomePage = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      // Get user info from token or backend
       fetch('http://localhost:3000/api/auth/me', {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -73,6 +72,7 @@ const HomePage = () => {
                   size="large" 
                   style={{ marginBottom: '16px' }}
                   icon={<UserOutlined />}
+                  onClick={() => navigate('/user')}
                 >
                   {username}
                 </Button>
