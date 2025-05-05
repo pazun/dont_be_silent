@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, message } from 'antd';
+import { Form, Input, Button, message, Upload } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { UploadOutlined } from '@ant-design/icons';
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
+  const [imageUrl, setImageUrl] = useState('');
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
     setLoading(true);
     try {
+      // Send as JSON instead of FormData
       const response = await fetch('http://localhost:3000/api/auth/register', {
         method: 'POST',
         headers: {
@@ -18,7 +21,8 @@ const SignUp = () => {
           name: values.name,
           email: values.email,
           password: values.password,
-        }),
+          profile_image: imageUrl
+        })
       });
 
       const data = await response.json();
@@ -31,9 +35,36 @@ const SignUp = () => {
         message.error(data.error || 'Registration failed');
       }
     } catch (error) {
+      console.error('Registration error:', error);
       message.error('Failed to connect to server');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleImageUpload = async (file) => {
+    const formData = new FormData();
+    formData.append('avatar', file);
+
+    try {
+      const response = await fetch('http://localhost:3000/api/upload/avatar', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        message.success('Image uploaded successfully');
+        setImageUrl(data.filePath);
+        return true;
+      } else {
+        message.error(data.error || 'Upload failed');
+        return false;
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+      message.error('Failed to upload image');
+      return false;
     }
   };
 
@@ -93,6 +124,31 @@ const SignUp = () => {
           ]}
         >
           <Input.Password size="large" />
+        </Form.Item>
+
+        <Form.Item
+          name="profile_image"
+          label="Profile Image"
+        >
+          <Upload
+            accept="image/*"
+            showUploadList={true}
+            maxCount={1}
+            customRequest={async ({ file, onSuccess, onError }) => {
+              try {
+                const success = await handleImageUpload(file);
+                if (success) {
+                  onSuccess('ok');
+                } else {
+                  onError(new Error('Upload failed'));
+                }
+              } catch (error) {
+                onError(error);
+              }
+            }}
+          >
+            <Button icon={<UploadOutlined />}>Upload Profile Image</Button>
+          </Upload>
         </Form.Item>
 
         <Form.Item>
