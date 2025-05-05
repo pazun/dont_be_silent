@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, ConfigProvider } from 'antd';
-import { createBrowserRouter, RouterProvider, Link, Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
-import { PhoneOutlined } from '@ant-design/icons';
-import Logo from '/Logo.svg';
-import styles from './styles/Header.module.css';
-import Counter from './components/Counter';
 import AppFooter from './components/Footer';
 import About from './pages/About';
 import Donation from './pages/Donation';
 import DomesticAbuse from './pages/DomesticAbuse';
 import Support from './pages/Support';
 import WhatWeDo from './pages/WhatWeDo';
-import Call from './pages/EmergencyHelp';
-import SignIn from './pages/SignIn';
 import EmergencyHelp from './pages/EmergencyHelp';
 import HomePage from './pages/HomePage';
+import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import User from './pages/User';
 import Admin from './pages/Admin';
 import DonationHistory from './pages/DonationHistory';
 import { customTheme } from './theme/theme';
 import ErrorPage from './pages/ErrorPage';
+import Notifications from './components/Notifications';
 
 const { Content } = Layout;
 
@@ -40,6 +36,7 @@ const App = () => {
 
   return (
     <ConfigProvider theme={customTheme}>
+      <Notifications />
       <Layout>
         <Header isMobile={isMobile} customTheme={customTheme} />
         <Layout style={{ padding: '0 24px 24px', background: customTheme.token.colorBgLayout }}>
