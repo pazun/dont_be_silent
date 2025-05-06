@@ -112,5 +112,68 @@ export default {
     },
     reminder: "Remember: You are not alone, and it's not your fault.",
     helpMessage: "If you recognize these signs in your relationship or someone you know, reach out for help. Our support services are available 24/7, and all conversations are confidential."
+  },
+  support: {
+    title: "Ways to Support",
+    description: "Your support helps us continue our vital work in supporting those affected by domestic abuse. There are many ways you can make a difference in the lives of survivors.",
+    donate: {
+      title: "Donate",
+      description: "Your financial support helps us:",
+      benefits: [
+        "Maintain our 24/7 helpline",
+        "Provide emergency accommodation",
+        "Offer counseling services",
+        "Develop educational programs"
+      ],
+      button: "Make a Donation"
+    },
+    volunteer: {
+      title: "Volunteer",
+      description: "Join our team of dedicated volunteers:",
+      roles: [
+        "Helpline support",
+        "Community outreach",
+        "Event organization",
+        "Administrative support"
+      ],
+      button: "Become a Volunteer"
+    },
+    awareness: {
+      title: "Raise Awareness",
+      description: "Help spread the word:",
+      ways: [
+        "Share our social media posts",
+        "Organize awareness events",
+        "Distribute information",
+        "Start conversations"
+      ],
+      button: "Get Resources"
+    },
+    corporate: {
+      title: "Corporate Partnership",
+      description: "Partner with us through:",
+      options: [
+        "Corporate donations",
+        "Sponsored events",
+        "Employee matching",
+        "Pro-bono services"
+      ],
+      button: "Partner With Us"
+    },
+    impact: {
+      title: "Impact of Your Support",
+      helpline: {
+        title: "24/7 Helpline",
+        description: "Your support helps us maintain our round-the-clock helpline service, ensuring help is always available when needed."
+      },
+      services: {
+        title: "Support Services",
+        description: "We provide counseling, legal advice, and practical support to hundreds of survivors each year."
+      },
+      prevention: {
+        title: "Prevention Programs",
+        description: "Our educational programs help prevent abuse by raising awareness and promoting healthy relationships."
+      }
+    }
   }
 };

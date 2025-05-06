@@ -1,138 +1,129 @@
 import React from 'react';
 import { Layout, Typography, Card, Row, Col, Button } from 'antd';
 import { HeartOutlined, TeamOutlined, SoundOutlined, DollarOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 const Support = () => {
+  const { t } = useTranslation();
+
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
       <Typography>
-        <Title level={2}>Ways to Support</Title>
+        <Title level={2}>{t('support.title')}</Title>
         <Paragraph>
-          Your support helps us continue our vital work in supporting those affected by domestic abuse.
-          There are many ways you can make a difference in the lives of survivors.
+          {t('support.description')}
         </Paragraph>
       </Typography>
 
       <Row gutter={[16, 16]} style={{ marginTop: '24px' }}>
         <Col xs={24} md={12} lg={6}>
           <Card
-            title={<><DollarOutlined /> Donate</>
-            }
+            title={<><DollarOutlined /> {t('support.donate.title')}</>}
             bordered={false}
             style={{ height: '100%' }}
           >
             <Paragraph>
-              Your financial support helps us:
+              {t('support.donate.description')}
               <ul>
-                <li>Maintain our 24/7 helpline</li>
-                <li>Provide emergency accommodation</li>
-                <li>Offer counseling services</li>
-                <li>Develop educational programs</li>
+                {t('support.donate.benefits', { returnObjects: true }).map((benefit, index) => (
+                  <li key={index}>{benefit}</li>
+                ))}
               </ul>
             </Paragraph>
             <Button type="primary" block>
-              Make a Donation
+              {t('support.donate.button')}
             </Button>
           </Card>
         </Col>
 
         <Col xs={24} md={12} lg={6}>
           <Card
-            title={<><TeamOutlined /> Volunteer</>
-            }
+            title={<><TeamOutlined /> {t('support.volunteer.title')}</>}
             bordered={false}
             style={{ height: '100%' }}
           >
             <Paragraph>
-              Join our team of dedicated volunteers:
+              {t('support.volunteer.description')}
               <ul>
-                <li>Helpline support</li>
-                <li>Community outreach</li>
-                <li>Event organization</li>
-                <li>Administrative support</li>
+                {t('support.volunteer.roles', { returnObjects: true }).map((role, index) => (
+                  <li key={index}>{role}</li>
+                ))}
               </ul>
             </Paragraph>
             <Button type="primary" block>
-              Become a Volunteer
+              {t('support.volunteer.button')}
             </Button>
           </Card>
         </Col>
 
         <Col xs={24} md={12} lg={6}>
           <Card
-            title={<><SoundOutlined /> Raise Awareness</>
-            }
+            title={<><SoundOutlined /> {t('support.awareness.title')}</>}
             bordered={false}
             style={{ height: '100%' }}
           >
             <Paragraph>
-              Help spread the word:
+              {t('support.awareness.description')}
               <ul>
-                <li>Share our social media posts</li>
-                <li>Organize awareness events</li>
-                <li>Distribute information</li>
-                <li>Start conversations</li>
+                {t('support.awareness.ways', { returnObjects: true }).map((way, index) => (
+                  <li key={index}>{way}</li>
+                ))}
               </ul>
             </Paragraph>
             <Button type="primary" block>
-              Get Resources
+              {t('support.awareness.button')}
             </Button>
           </Card>
         </Col>
 
         <Col xs={24} md={12} lg={6}>
           <Card
-            title={<><HeartOutlined /> Corporate Partnership</>
-            }
+            title={<><HeartOutlined /> {t('support.corporate.title')}</>}
             bordered={false}
             style={{ height: '100%' }}
           >
             <Paragraph>
-              Partner with us through:
+              {t('support.corporate.description')}
               <ul>
-                <li>Corporate donations</li>
-                <li>Sponsored events</li>
-                <li>Employee matching</li>
-                <li>Pro-bono services</li>
+                {t('support.corporate.options', { returnObjects: true }).map((option, index) => (
+                  <li key={index}>{option}</li>
+                ))}
               </ul>
             </Paragraph>
             <Button type="primary" block>
-              Partner With Us
+              {t('support.corporate.button')}
             </Button>
           </Card>
         </Col>
       </Row>
 
       <Card style={{ marginTop: '24px' }}>
-        <Title level={3}>Impact of Your Support</Title>
+        <Title level={3}>{t('support.impact.title')}</Title>
         <Row gutter={[16, 16]}>
           <Col xs={24} md={8}>
             <Card bordered={false}>
-              <Title level={4}>24/7 Helpline</Title>
+              <Title level={4}>{t('support.impact.helpline.title')}</Title>
               <Paragraph>
-                Your support helps us maintain our round-the-clock helpline service,
-                ensuring help is always available when needed.
+                {t('support.impact.helpline.description')}
               </Paragraph>
             </Card>
           </Col>
           <Col xs={24} md={8}>
             <Card bordered={false}>
-              <Title level={4}>Support Services</Title>
+              <Title level={4}>{t('support.impact.services.title')}</Title>
               <Paragraph>
-                We provide counseling, legal advice, and practical support to
-                hundreds of survivors each year.
+                {t('support.impact.services.description')}
               </Paragraph>
             </Card>
           </Col>
           <Col xs={24} md={8}>
             <Card bordered={false}>
-              <Title level={4}>Prevention Programs</Title>
+              <Title level={4}>{t('support.impact.prevention.title')}</Title>
               <Paragraph>
-                Our educational programs help prevent abuse by raising awareness
-                and promoting healthy relationships.
+                {t('support.impact.prevention.description')}
               </Paragraph>
             </Card>
           </Col>

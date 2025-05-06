@@ -112,5 +112,68 @@ export default {
     },
     reminder: "Este saqtańyz: Siz jalǵyz emessiz, jáne bul sizdiń kináńiz emes.",
     helpMessage: "Eger siz óz qatynastarynyzda nemese tanystarynyzda osy belgilerdi baıqasańyz, kómekke júginiń. Bizdiń qoldaý qyzmeti 24/7 qoljetimdi, jáne barlyq áńgimeler qupıa."
+  },
+  support: {
+    title: "Qoldaw joldary",
+    description: "Sizdiń qoldawyńyz bizge túrmystyq zorlyq-zombylyqtan zardap shekkenderge kómektesýge múmkindik beredi. Adamdar ómirin ózgertýdiń kóptegen joldary bar.",
+    donate: {
+      title: "Qaıyrymdylyq",
+      description: "Sizdiń qarjylyq qoldawyńyz bizge kómektesedi:",
+      benefits: [
+        "24/7 senim telefon jelisi",
+        "Tótenshe túrǵyn úı",
+        "Keńes berý qyzmeti",
+        "Bilim berý baǵdarlamalary"
+      ],
+      button: "Qaıyrymdylyq jasaý"
+    },
+    volunteer: {
+      title: "Eriktiler",
+      description: "Bizdiń eriktiler tobyna qosylyńyz:",
+      roles: [
+        "Senim telefon jelisi",
+        "Qaýymdastyqpen jumys",
+        "Is-sharalar uıymdastyrý",
+        "Ákimshilik qoldaý"
+      ],
+      button: "Erikti bolý"
+    },
+    awareness: {
+      title: "Habardarlyqty arttyrý",
+      description: "Aqparatty taratýǵa kómektesiń:",
+      ways: [
+        "Áleýmettik jelilerdegi jazbalarmyzben bólisiń",
+        "Aqparattyq is-sharalar uıymdastyrý",
+        "Aqparat taratý",
+        "Talqylaýlar bastań"
+      ],
+      button: "Materıaldar alý"
+    },
+    corporate: {
+      title: "Korporatıvtik áriptestik",
+      description: "Bizben áriptes bolyńyz:",
+      options: [
+        "Korporatıvtik qaıyrymdylyq",
+        "Demewshilik is-sharalar",
+        "Qyzmetkerlermen birge qarjylandyrý",
+        "Pro-bono qyzmetter"
+      ],
+      button: "Áriptes bolý"
+    },
+    impact: {
+      title: "Sizdiń qoldawyńyzdyń áseri",
+      helpline: {
+        title: "24/7 senim telefon jelisi",
+        description: "Sizdiń qoldawyńyz bizge senim telefon jelisin táýlik boıy jumys isteýin qamtamasyz etýge kómektesedi."
+      },
+      services: {
+        title: "Qoldaý qyzmetteri",
+        description: "Biz jyl saıyn júzdegen adamǵa keńes berý, zańgerlik kómek jáne praktıkalyq qoldaý kórsetemiz."
+      },
+      prevention: {
+        title: "Aldyn alý baǵdarlamalary",
+        description: "Bizdiń bilim berý baǵdarlamalary habardarlyqty arttyrý jáne salawatty qarym-qatynas arqyly zorlyq-zombylyqtyń aldyn alýǵa kómektesedi."
+      }
+    }
   }
 };
