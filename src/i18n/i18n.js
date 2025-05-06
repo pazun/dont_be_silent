@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './translations/en';
 import ru from './translations/ru';
-import kk from './translations/kk';
+import kz from './translations/kz';
 
 i18n
   .use(LanguageDetector)
@@ -12,7 +12,7 @@ i18n
     resources: {
       en: { translation: en },
       ru: { translation: ru },
-      kk: { translation: kk }
+      kz: { translation: kz }
     },
     fallbackLng: 'en',
     interpolation: {

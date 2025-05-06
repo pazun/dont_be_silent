@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
     >
       <Option value="en">English</Option>
       <Option value="ru">Русский</Option>
-      <Option value="kk">Қазақша</Option>
+      <Option value="kz">Qazaqşa</Option>
     </Select>
   );
 };

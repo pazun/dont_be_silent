@@ -2,11 +2,14 @@ import React from 'react';
 import { Layout, Typography, Row, Col, Input, Button } from 'antd';
 import { LinkedinOutlined, FacebookOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const { Footer } = Layout;
 const { Title, Text } = Typography;
 
 const AppFooter = () => {
+  const { t } = useTranslation();
+
   return (
     <Footer style={{ background: '#f5f5f5', padding: '40px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
@@ -18,37 +21,37 @@ const AppFooter = () => {
           </Col>
 
           <Col xs={24} sm={6}>
-            <Title level={5}>Company</Title>
+            <Title level={5}>{t('footer.company')}</Title>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link to="/about" style={{ color: '#151515' }}>About Us</Link>
-              <Link to="/support" style={{ color: '#151515' }}>Support Us</Link>
-              <Link to="/what-we-do" style={{ color: '#151515' }}>What We Do</Link>
-              <Link to="/SignIn" style={{ color: '#151515' }}>Sign in</Link>
-              <Link to="/SignUp" style={{ color: '#151515' }}>Sign up</Link>
+              <Link to="/about" style={{ color: '#151515' }}>{t('footer.aboutUs')}</Link>
+              <Link to="/support" style={{ color: '#151515' }}>{t('footer.supportUs')}</Link>
+              <Link to="/what-we-do" style={{ color: '#151515' }}>{t('footer.whatWeDo')}</Link>
+              <Link to="/SignIn" style={{ color: '#151515' }}>{t('footer.signIn')}</Link>
+              <Link to="/SignUp" style={{ color: '#151515' }}>{t('footer.signUp')}</Link>
             </div>
           </Col>
 
           <Col xs={24} sm={6}>
-            <Title level={5}>Quick Links</Title>
+            <Title level={5}>{t('footer.quickLinks')}</Title>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link to="/emergency-help" style={{ color: '#151515' }}>Emergency Help</Link>
-              <Link to="/about-abuse" style={{ color: '#151515' }}>About Domestic Abuse</Link>
-              <Link to="/donation" style={{ color: '#151515' }}>Make a Donation</Link>
-              <Link to="/donation-history" style={{ color: '#151515' }}>Donation History</Link>
-              <Link to="/admin" style={{ color: '#151515' }}>Admin</Link>
+              <Link to="/emergency-help" style={{ color: '#151515' }}>{t('footer.emergencyHelp')}</Link>
+              <Link to="/about-abuse" style={{ color: '#151515' }}>{t('footer.aboutAbuse')}</Link>
+              <Link to="/donation" style={{ color: '#151515' }}>{t('footer.makeDonation')}</Link>
+              <Link to="/donation-history" style={{ color: '#151515' }}>{t('footer.donationHistory')}</Link>
+              <Link to="/admin" style={{ color: '#151515' }}>{t('footer.admin')}</Link>
             </div>
           </Col>
 
           <Col xs={24} sm={6}>
-            <Title level={5}>24/7 Helpline</Title>
+            <Title level={5}>{t('footer.helpline')}</Title>
             <Text strong style={{ fontSize: '18px', color: '#DA2864' }}>8 707 520 05 19</Text>
-            <Text style={{ display: 'block', marginTop: '10px' }}>Free, confidential support available 24/7</Text>
+            <Text style={{ display: 'block', marginTop: '10px' }}>{t('footer.helplineDescription')}</Text>
           </Col>
         </Row>
 
         <Row justify="space-between" align="middle" style={{ marginTop: '40px', borderTop: '1px solid #e8e8e8', paddingTop: '20px' }}>
           <Col>
-            <Text>Copyright © 2025 Don't Be Silent. All Rights Reserved</Text>
+            <Text>{t('footer.copyright')}</Text>
           </Col>
           <Col>
             <div style={{ display: 'flex', gap: '20px' }}>

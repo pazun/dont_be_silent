@@ -30,5 +30,22 @@ export default {
     emotionalSupport: "Provide emotional support",
     options: "Help you understand your options",
     connect: "Connect you with local services"
+  },
+  footer: {
+    company: "Company",
+    aboutUs: "About Us",
+    supportUs: "Support Us",
+    whatWeDo: "What We Do",
+    signIn: "Sign in",
+    signUp: "Sign up",
+    quickLinks: "Quick Links",
+    emergencyHelp: "Emergency Help",
+    aboutAbuse: "About Domestic Abuse",
+    makeDonation: "Make a Donation",
+    donationHistory: "Donation History",
+    admin: "Admin",
+    helpline: "24/7 Helpline",
+    helplineDescription: "Free, confidential support available 24/7",
+    copyright: "Copyright © 2025 Don't Be Silent. All Rights Reserved"
   }
 };

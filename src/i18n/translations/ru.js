@@ -30,5 +30,22 @@ export default {
     emotionalSupport: "Оказать эмоциональную поддержку",
     options: "Помочь вам понять ваши возможности",
     connect: "Связать вас с местными службами поддержки"
+  },
+  footer: {
+    company: "Компания",
+    aboutUs: "О нас",
+    supportUs: "Поддержать нас",
+    whatWeDo: "Что мы делаем",
+    signIn: "Войти",
+    signUp: "Зарегистрироваться",
+    quickLinks: "Быстрые ссылки",
+    emergencyHelp: "Экстренная помощь",
+    aboutAbuse: "О домашнем насилии",
+    makeDonation: "Сделать пожертвование",
+    donationHistory: "История пожертвований",
+    admin: "Администратор",
+    helpline: "Горячая линия 24/7",
+    helplineDescription: "Бесплатная конфиденциальная поддержка доступна 24/7",
+    copyright: "© 2025 Don't Be Silent. Все права защищены"
   }
 };
