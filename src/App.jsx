@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, ConfigProvider } from 'antd';
+import { Layout, ConfigProvider, theme } from 'antd';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -16,7 +16,7 @@ import SignUp from './pages/SignUp';
 import User from './pages/User';
 import Admin from './pages/Admin';
 import DonationHistory from './pages/DonationHistory';
-import { customTheme } from './theme/theme';
+import { customTheme, lightTheme, darkTheme } from './theme/theme';
 import ErrorPage from './pages/ErrorPage';
 import Notifications from './components/Notifications';
 
@@ -24,6 +24,32 @@ const { Content } = Layout;
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+  const [currentTheme, setCurrentTheme] = useState('light');
+
+  useEffect(() => {
+    const fetchUserTheme = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (token) {
+          const response = await fetch('http://localhost:3000/api/settings', {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          const settings = await response.json();
+          if (settings.theme) {
+            setCurrentTheme(settings.theme);
+          } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setCurrentTheme('dark');
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching theme settings:', error);
+      }
+    };
+
+    fetchUserTheme();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,19 +60,28 @@ const App = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const themeConfig = {
+    ...customTheme,
+    token: {
+      ...customTheme.token,
+      ...(currentTheme === 'light' ? lightTheme.token : darkTheme.token),
+    },
+    algorithm: currentTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
+  };
+
   return (
-    <ConfigProvider theme={customTheme}>
+    <ConfigProvider theme={themeConfig}>
       <Notifications />
       <Layout>
-        <Header isMobile={isMobile} customTheme={customTheme} />
-        <Layout style={{ padding: '0 24px 24px', background: customTheme.token.colorBgLayout }}>
+        <Header isMobile={isMobile} customTheme={themeConfig} />
+        <Layout style={{ padding: '0 24px 24px', background: themeConfig.token.colorBgLayout }}>
           <Content
             style={{
               padding: 24,
               margin: 0,
               minHeight: 280,
-              background: customTheme.token.colorBgContainer,
-              borderRadius: customTheme.token.borderRadius,
+              background: themeConfig.token.colorBgContainer,
+              borderRadius: themeConfig.token.borderRadius,
             }}
           >
             <Outlet />
