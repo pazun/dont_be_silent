@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Counter from '../components/Counter';
 import { Layout, Typography, Card, Row, Col, Button, Avatar } from 'antd';
 import { HeartOutlined, UserOutlined } from '@ant-design/icons';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 const HomePage = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
@@ -44,23 +47,25 @@ const HomePage = () => {
   
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 20 }}>
+        <LanguageSwitcher />
+      </div>
       <Typography>
-        <Title level={1}>Welcome to Don't Be Silent</Title>
+        <Title level={1}>{t('home.welcome')}</Title>
         <Paragraph style={{ fontSize: '18px' }}>
-          This project helps people to avoid abuse and find support when they need it most.
+          {t('home.description')}
         </Paragraph>
       </Typography>
 
       <Row gutter={[16, 16]} style={{ marginTop: '24px' }}>
         <Col xs={24} md={16}>
           <Card
-            title={<><HeartOutlined /> Support Our Mission</>
-            }
+            title={<><HeartOutlined /> {t('home.supportMission')}</>}
             bordered={false}
           >
             <Counter />
             <Paragraph style={{ marginTop: '16px', textAlign: 'center' }}>
-              Thank you for joining our community in the fight against domestic abuse
+              {t('home.thankYou')}
             </Paragraph>
           </Card>
         </Col>
@@ -88,7 +93,7 @@ const HomePage = () => {
                   size="large" 
                   onClick={handleSignOut}
                 >
-                  Sign out
+                  {t('home.signOut')}
                 </Button>
               </>
             ) : (
@@ -100,14 +105,14 @@ const HomePage = () => {
                   style={{ marginBottom: '16px' }}
                   onClick={() => navigate('/signin')}
                 >
-                  Sign in
+                  {t('home.signIn')}
                 </Button>
                 <Button 
                   block 
                   size="large" 
                   onClick={() => navigate('/signup')}
                 >
-                  Sign up
+                  {t('home.signUp')}
                 </Button>
               </>
             )}

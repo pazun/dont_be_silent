@@ -2,33 +2,35 @@ import React from 'react';
 import { Layout, Menu, Button, Typography } from 'antd';
 import { PhoneOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Logo from '/Logo.svg';
 import styles from '../styles/Header.module.css';
 
 const { Header: AntHeader } = Layout;
 
-const menuItems = [
-  {
-    key: '/emergency-help',
-    label: 'I need help now',
-  },
-  {
-    key: '/about-abuse',
-    label: 'About domestic abuse',
-  },
-  {
-    key: '/support',
-    label: 'I want to support'
-  },
-  {
-    key: '/about',
-    label: 'About Us'
-  }
-];
-
 const Header = ({ isMobile, customTheme }) => {
   const navigate = useNavigate();
   const location = window.location.pathname;
+  const { t } = useTranslation();
+
+  const menuItems = [
+    {
+      key: '/emergency-help',
+      label: t('header.menu.emergencyHelp'),
+    },
+    {
+      key: '/about-abuse',
+      label: t('header.menu.aboutAbuse'),
+    },
+    {
+      key: '/support',
+      label: t('header.menu.support'),
+    },
+    {
+      key: '/about',
+      label: t('header.menu.aboutUs'),
+    }
+  ];
 
   const handleMenuClick = (e) => {
     navigate(e.key);
@@ -62,7 +64,7 @@ const Header = ({ isMobile, customTheme }) => {
             color: '#DA2864',
             marginRight: isMobile ? '0' : '16px',
             textAlign: isMobile ? 'center' : 'left'
-          }}>Need help now? Contact us free, 24/7 on</Typography.Text>
+          }}>{t('header.needHelp')}</Typography.Text>
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -96,7 +98,7 @@ const Header = ({ isMobile, customTheme }) => {
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
-              Call Helpline
+              {t('header.callHelpline')}
             </Button>
             <Button 
               shape="round" 
@@ -113,7 +115,7 @@ const Header = ({ isMobile, customTheme }) => {
                 justifyContent: 'center'
               }}
             >
-              Donate
+              {t('header.donate')}
             </Button>
           </div>
         </div>

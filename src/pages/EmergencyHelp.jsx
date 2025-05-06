@@ -1,36 +1,38 @@
 import React from 'react';
 import { Layout, Typography, Card, Row, Col, Button } from 'antd';
 import { PhoneOutlined, MessageOutlined, SafetyOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
 const EmergencyHelp = () => {
+  const { t } = useTranslation();
+  
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
       <Typography>
-        <Title level={2}>Emergency Help Available 24/7</Title>
+        <Title level={2}>{t('emergency.title')}</Title>
         <Paragraph>
-          If you're in immediate danger, call <Text strong>999</Text> immediately.
-          Your safety is our top priority. We're here to help you, and all our services are free and confidential.
+          {t('emergency.callNow')} <Text strong>999</Text> {t('emergency.immediately')}
+          {t('emergency.priority')}
         </Paragraph>
       </Typography>
 
       <Row gutter={[16, 16]} style={{ marginTop: '24px' }}>
         <Col xs={24} md={8}>
           <Card
-            title={<><PhoneOutlined /> Helpline</>
-            }
+            title={<><PhoneOutlined /> {t('emergency.helpline')}</>}
             bordered={false}
           >
             <Title level={3} style={{ color: '#DA2864' }}>8 707 520 05 19</Title>
             <Paragraph>
-              Our trained support workers are available 24/7 to:
+              {t('emergency.supportWorkers')}:
               <ul>
-                <li>Listen without judgment</li>
-                <li>Provide emotional support</li>
-                <li>Help you understand your options</li>
-                <li>Connect you with local services</li>
+                <li>{t('emergency.listen')}</li>
+                <li>{t('emergency.emotionalSupport')}</li>
+                <li>{t('emergency.options')}</li>
+                <li>{t('emergency.connect')}</li>
               </ul>
             </Paragraph>
           </Card>

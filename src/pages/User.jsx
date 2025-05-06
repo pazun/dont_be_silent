@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Typography, Card, Form, Input, Button, message, Spin, Avatar, Upload, Row, Col, Switch, Select } from 'antd';
 import { UserOutlined, LockOutlined, UploadOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -178,6 +179,8 @@ const User = () => {
     }
   };
 
+  const { i18n } = useTranslation(); // Add this import at the top
+
   const onUpdateSettings = async (values) => {
     try {
       const token = localStorage.getItem('token');
@@ -199,6 +202,10 @@ const User = () => {
 
       if (response.ok) {
         message.success('Settings updated successfully');
+        // Add this line to change the language when settings are updated
+        if (values.language) {
+          i18n.changeLanguage(values.language);
+        }
       } else {
         message.error(data.error || 'Failed to update settings');
       }
