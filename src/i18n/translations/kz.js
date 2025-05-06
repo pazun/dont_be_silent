@@ -5,7 +5,7 @@ export default {
     donate: 'Jasaw',
     menu: {
       emergencyHelp: 'Maǵan kómek kerek',
-      aboutAbuse: 'Túrmylyq',
+      aboutAbuse: 'Túrmylyq zorlyq-zombylyq',
       support: 'Qoldaý',
       aboutUs: 'Biz turaly'
     }
@@ -40,12 +40,77 @@ export default {
     signUp: "Tirkelu",
     quickLinks: "Jylǵam sıltemeler",
     emergencyHelp: "Jedel kómek",
-    aboutAbuse: "Túrmylyq zorlyq-zombylyq turaly",
+    aboutAbuse: "Túrmylyq zorlyq-zombylyq",
     makeDonation: "Qayyrymdylyq jasaw",
     donationHistory: "Qayyrymdylyq tarıhy",
     admin: "Ákimshi",
     helpline: "Senim telefony 24/7",
     helplineDescription: "Tegin, qypıa qoldaw 24/7 qoljetimdi",
     copyright: "© 2025 Don't Be Silent. Barlyq qyqyqtar qorǵalǵan"
+  },
+  domesticAbuse: {
+    title: "Túrmystyq zorlyq-zombylyqty túsiný",
+    description: "Túrmystyq zorlyq-zombylyq jasyna, jynysyna, etnıkalyq nemese áleýmettik tegine qaramastan, kez kelgen adamǵa áser etýi múmkin. Zorlyq-zombylyqtyń túrli formalaryn túsinip, eskertý belgilerdi tanýǵa qabiletti bolý alǵa basý jáne kómek izdestirý úshin óte mańyzdy.",
+    typesTitle: "Zorlyq-zombylyq túrleri",
+    physical: {
+      title: "Fızıkalyq zorlyq-zombylyq",
+      description: "Fızıkalyq zorlyq-zombylyq kelesi áreketterdi qamtıdy:",
+      point1: "Urý, shatý nemese júdyryqpen urý",
+      point2: "Iterý nemese súıreý",
+      point3: "Shektep qoıý nemese qamap qoıý",
+      point4: "Qarudy nemese zatty zarar keltirý úshin qoldaný"
+    },
+    emotional: {
+      title: "Emocıonalyq/psıhologıalyq zorlyq-zombylyq",
+      description: "Emocıonalyq zorlyq-zombylyq túrleri:",
+      point1: "Úzdiksis syn jáne qorlaý",
+      point2: "Qorqytý jáne úreı týǵyzý",
+      point3: "Dostar men otbasynan oqshaýlandyrý",
+      point4: "Baqylaý áreket"
+    },
+    financial: {
+      title: "Qarjylyq zorlyq-zombylyq",
+      description: "Qarjylyq zorlyq-zombylyq kelesi áreketterdi qamtıdy:",
+      point1: "Aqshaǵa qol jetkizýdi baqylaý",
+      point2: "Qarjylyq táýeldilikke májbúrleý",
+      point3: "Sizdiń atyńyzǵa nesıe alý",
+      point4: "Jumys nemese bilim alýǵa kedergiler jasaý"
+    },
+    warningTitle: "Eskertý belgiler",
+    warningDescription: "Zorlyq-zombylyq qatynastarynyn jalpy belgiler:",
+    warningSigns: {
+      point1: "Shekten tys qyzǵanysh nemese ıelik etý",
+      point2: "Tez aradastyq nemese mindettemelikke qysym jasaý",
+      point3: "Dostar men otbasynan oqshaýlandyrý",
+      point4: "Baqylaý áreket jáne sheshim qabyldaý",
+      point5: "Boljaýsyz kóńil-kúı ózgerister",
+      point6: "Óz áreketteri úshin sizdi kinálaý",
+      point7: "Qorqytý nemese úreı týǵyzý",
+      point8: "Qarjylyq baqylaý nemese paıdalaný"
+    },
+    impactTitle: "Túrmystyq zorlyq-zombylyqtyń áseri",
+    physicalImpact: {
+      title: "Fızıkalyq áser",
+      point1: "Jaraqattar jáne sozylmaly densaýlyq máseleler",
+      point2: "Uıqy buzylýy",
+      point3: "Tamaqtaný buzylýy",
+      point4: "Fızıkalyq shalǵý"
+    },
+    emotionalImpact: {
+      title: "Emocıonalyq áser",
+      point1: "Depressıa jáne maýqý",
+      point2: "Jarahat keıingi stress",
+      point3: "Tómen ózin-ózi baǵalaý",
+      point4: "Qorqynysh jáne oqshaýlaný"
+    },
+    socialImpact: {
+      title: "Áleýmettik áser",
+      point1: "Búlingen qatynstar",
+      point2: "Áleýmettik oqshaýlaný",
+      point3: "Jumys/oqý qıyndyqtary",
+      point4: "Qarjylyq qıyndyqtar"
+    },
+    reminder: "Este saqtańyz: Siz jalǵyz emessiz, jáne bul sizdiń kináńiz emes.",
+    helpMessage: "Eger siz óz qatynastarynyzda nemese tanystarynyzda osy belgilerdi baıqasańyz, kómekke júginiń. Bizdiń qoldaý qyzmeti 24/7 qoljetimdi, jáne barlyq áńgimeler qupıa."
   }
 };

@@ -40,12 +40,77 @@ export default {
     signUp: "Sign up",
     quickLinks: "Quick Links",
     emergencyHelp: "Emergency Help",
-    aboutAbuse: "About Domestic Abuse",
+    aboutAbuse: "Understanding Domestic Abuse",
     makeDonation: "Make a Donation",
     donationHistory: "Donation History",
     admin: "Admin",
     helpline: "24/7 Helpline",
     helplineDescription: "Free, confidential support available 24/7",
     copyright: "Copyright © 2025 Don't Be Silent. All Rights Reserved"
+  },
+  domesticAbuse: {
+    title: "Understanding Domestic Abuse",
+    description: "Domestic abuse can affect anyone, regardless of age, gender, ethnicity, or social background. Understanding the different forms of abuse and recognizing warning signs is crucial for both prevention and seeking help.",
+    typesTitle: "Types of Abuse",
+    physical: {
+      title: "Physical Abuse",
+      description: "Physical abuse includes but is not limited to:",
+      point1: "Hitting, slapping, or punching",
+      point2: "Pushing or shoving",
+      point3: "Restraining or confinement",
+      point4: "Using weapons or objects to cause harm"
+    },
+    emotional: {
+      title: "Emotional/Psychological Abuse",
+      description: "Forms of emotional abuse include:",
+      point1: "Constant criticism and humiliation",
+      point2: "Threats and intimidation",
+      point3: "Isolation from friends and family",
+      point4: "Controlling behavior"
+    },
+    financial: {
+      title: "Financial Abuse",
+      description: "Financial abuse may include:",
+      point1: "Controlling access to money",
+      point2: "Forcing financial dependence",
+      point3: "Taking out loans in your name",
+      point4: "Preventing work or education"
+    },
+    warningTitle: "Warning Signs",
+    warningDescription: "Common signs of abusive relationships:",
+    warningSigns: {
+      point1: "Extreme jealousy or possessiveness",
+      point2: "Rapid relationship progression or pressure for commitment",
+      point3: "Isolation from friends and family",
+      point4: "Controlling behavior and decision-making",
+      point5: "Unpredictable mood swings",
+      point6: "Blaming you for their behavior",
+      point7: "Threats or intimidation",
+      point8: "Financial control or exploitation"
+    },
+    impactTitle: "Impact of Domestic Abuse",
+    physicalImpact: {
+      title: "Physical Impact",
+      point1: "Injuries and chronic health problems",
+      point2: "Sleep disturbances",
+      point3: "Eating disorders",
+      point4: "Physical exhaustion"
+    },
+    emotionalImpact: {
+      title: "Emotional Impact",
+      point1: "Depression and anxiety",
+      point2: "Post-traumatic stress",
+      point3: "Low self-esteem",
+      point4: "Fear and isolation"
+    },
+    socialImpact: {
+      title: "Social Impact",
+      point1: "Damaged relationships",
+      point2: "Social isolation",
+      point3: "Work/study difficulties",
+      point4: "Financial difficulties"
+    },
+    reminder: "Remember: You are not alone, and it's not your fault.",
+    helpMessage: "If you recognize these signs in your relationship or someone you know, reach out for help. Our support services are available 24/7, and all conversations are confidential."
   }
 };

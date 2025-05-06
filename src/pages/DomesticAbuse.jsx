@@ -1,61 +1,85 @@
 import React from 'react';
 import { Layout, Typography, Card, Collapse, Row, Col } from 'antd';
 import { WarningOutlined, HeartOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 const { Panel } = Collapse;
 
 const DomesticAbuse = () => {
+  const { t } = useTranslation();
+  
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
       <Typography>
-        <Title level={2}>Understanding Domestic Abuse</Title>
+        <Title level={2}>{t('domesticAbuse.title')}</Title>
         <Paragraph>
-          Domestic abuse can affect anyone, regardless of age, gender, ethnicity, or social background.
-          Understanding the different forms of abuse and recognizing the warning signs is crucial for
-          both prevention and seeking help.
+          {t('domesticAbuse.description')}
         </Paragraph>
       </Typography>
 
-      <Row gutter={[16, 16]} style={{ marginTop: '24px' }}>
+      <Row gutter={[16, 16]} style={{ marginTop: '24px', marginBottom: '24px' }}>
+        <Col xs={24} md={8}>
+          <img
+            src="/images/Illustration1.jpeg"
+            alt="Symbolic representation of healing - broken objects being gently pieced back together in soft, muted colors, conveying hope and healing"
+            style={{ width: '100%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
+          />
+        </Col>
+        <Col xs={24} md={8}>
+          <img
+            src="/images/Illustration2.jpeg"
+            alt="Two hands gently touching with a subtle glow, symbolizing support and connection in overcoming adversity"
+            style={{ width: '100%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
+          />
+        </Col>
+        <Col xs={24} md={8}>
+          <img
+            src="/images/Illustration3.jpeg"
+            alt="A resilient flower pushing through cracked earth in sunlight, symbolizing strength, growth, and hope for survivors"
+            style={{ width: '100%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
+          />
+        </Col>
+      </Row>
+
+      <Row gutter={[16, 16]}>
         <Col xs={24} md={12}>
           <Card
-            title={<><WarningOutlined /> Types of Abuse</>
-            }
+            title={<><WarningOutlined /> {t('domesticAbuse.typesTitle')}</>}
             bordered={false}
           >
             <Collapse defaultActiveKey={['1']}>
-              <Panel header="Physical Abuse" key="1">
+              <Panel header={t('domesticAbuse.physical.title')} key="1">
                 <Paragraph>
-                  Physical abuse includes but is not limited to:
+                  {t('domesticAbuse.physical.description')}
                   <ul>
-                    <li>Hitting, slapping, or punching</li>
-                    <li>Pushing or shoving</li>
-                    <li>Restraining or imprisoning</li>
-                    <li>Using weapons or objects to cause harm</li>
+                    <li>{t('domesticAbuse.physical.point1')}</li>
+                    <li>{t('domesticAbuse.physical.point2')}</li>
+                    <li>{t('domesticAbuse.physical.point3')}</li>
+                    <li>{t('domesticAbuse.physical.point4')}</li>
                   </ul>
                 </Paragraph>
               </Panel>
-              <Panel header="Emotional/Psychological Abuse" key="2">
+              <Panel header={t('domesticAbuse.emotional.title')} key="2">
                 <Paragraph>
-                  Forms of emotional abuse include:
+                  {t('domesticAbuse.emotional.description')}
                   <ul>
-                    <li>Constant criticism and humiliation</li>
-                    <li>Threats and intimidation</li>
-                    <li>Isolation from friends and family</li>
-                    <li>Controlling behavior</li>
+                    <li>{t('domesticAbuse.emotional.point1')}</li>
+                    <li>{t('domesticAbuse.emotional.point2')}</li>
+                    <li>{t('domesticAbuse.emotional.point3')}</li>
+                    <li>{t('domesticAbuse.emotional.point4')}</li>
                   </ul>
                 </Paragraph>
               </Panel>
-              <Panel header="Financial Abuse" key="3">
+              <Panel header={t('domesticAbuse.financial.title')} key="3">
                 <Paragraph>
-                  Financial abuse may involve:
+                  {t('domesticAbuse.financial.description')}
                   <ul>
-                    <li>Controlling access to money</li>
-                    <li>Forcing financial dependency</li>
-                    <li>Taking loans in your name</li>
-                    <li>Preventing work or education</li>
+                    <li>{t('domesticAbuse.financial.point1')}</li>
+                    <li>{t('domesticAbuse.financial.point2')}</li>
+                    <li>{t('domesticAbuse.financial.point3')}</li>
+                    <li>{t('domesticAbuse.financial.point4')}</li>
                   </ul>
                 </Paragraph>
               </Panel>
@@ -65,70 +89,58 @@ const DomesticAbuse = () => {
 
         <Col xs={24} md={12}>
           <Card
-            title={<><HeartOutlined /> Warning Signs</>
-            }
+            title={<><HeartOutlined /> {t('domesticAbuse.warningTitle')}</>}
             bordered={false}
           >
             <Paragraph>
-              Common warning signs of an abusive relationship:
+              {t('domesticAbuse.warningDescription')}
             </Paragraph>
             <ul>
-              <li>Extreme jealousy or possessiveness</li>
-              <li>Quick involvement or pressure to commit</li>
-              <li>Isolation from friends and family</li>
-              <li>Controlling behavior and decision making</li>
-              <li>Unpredictable mood swings</li>
-              <li>Blaming you for their behavior</li>
-              <li>Making threats or intimidating you</li>
-              <li>Financial control or exploitation</li>
+              {Array.from({ length: 8 }, (_, i) => (
+                <li key={i}>{t(`domesticAbuse.warningSigns.point${i + 1}`)}</li>
+              ))}
             </ul>
           </Card>
         </Col>
       </Row>
 
       <Card
-        title={<><InfoCircleOutlined /> Impact of Domestic Abuse</>
-        }
+        title={<><InfoCircleOutlined /> {t('domesticAbuse.impactTitle')}</>}
         style={{ marginTop: '24px' }}
         bordered={false}
       >
         <Row gutter={[16, 16]}>
           <Col xs={24} md={8}>
-            <Title level={4}>Physical Impact</Title>
+            <Title level={4}>{t('domesticAbuse.physicalImpact.title')}</Title>
             <ul>
-              <li>Injuries and chronic health issues</li>
-              <li>Sleep disturbances</li>
-              <li>Eating disorders</li>
-              <li>Physical exhaustion</li>
+              {Array.from({ length: 4 }, (_, i) => (
+                <li key={i}>{t(`domesticAbuse.physicalImpact.point${i + 1}`)}</li>
+              ))}
             </ul>
           </Col>
           <Col xs={24} md={8}>
-            <Title level={4}>Emotional Impact</Title>
+            <Title level={4}>{t('domesticAbuse.emotionalImpact.title')}</Title>
             <ul>
-              <li>Depression and anxiety</li>
-              <li>Post-traumatic stress</li>
-              <li>Low self-esteem</li>
-              <li>Fear and isolation</li>
+              {Array.from({ length: 4 }, (_, i) => (
+                <li key={i}>{t(`domesticAbuse.emotionalImpact.point${i + 1}`)}</li>
+              ))}
             </ul>
           </Col>
           <Col xs={24} md={8}>
-            <Title level={4}>Social Impact</Title>
+            <Title level={4}>{t('domesticAbuse.socialImpact.title')}</Title>
             <ul>
-              <li>Damaged relationships</li>
-              <li>Social withdrawal</li>
-              <li>Work/study difficulties</li>
-              <li>Financial hardship</li>
+              {Array.from({ length: 4 }, (_, i) => (
+                <li key={i}>{t(`domesticAbuse.socialImpact.point${i + 1}`)}</li>
+              ))}
             </ul>
           </Col>
         </Row>
       </Card>
 
       <Card style={{ marginTop: '24px', background: '#FFF4F4' }}>
-        <Text strong>Remember: You are not alone, and it's not your fault.</Text>
+        <Text strong>{t('domesticAbuse.reminder')}</Text>
         <Paragraph style={{ marginTop: '8px' }}>
-          If you recognize any of these signs in your relationship or someone you know,
-          reach out for help. Our support services are available 24/7, and all conversations
-          are confidential.
+          {t('domesticAbuse.helpMessage')}
         </Paragraph>
       </Card>
     </Content>
