@@ -20,7 +20,7 @@ export default {
     signOut: "Sign Out"
   },
   emergency: {
-    title: "Emergency Help Available 24/7",
+    title: "Emergency Help Available 24 hours/7 days a week",
     callNow: "If you're in immediate danger, call",
     immediately: "immediately.",
     priority: "Your safety is our top priority. We're here to help you, and all our services are free and confidential.",
