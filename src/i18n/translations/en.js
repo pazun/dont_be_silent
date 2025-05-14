@@ -38,7 +38,6 @@ export default {
     whatWeDo: "What We Do",
     signIn: "Sign in",
     signUp: "Sign up",
-    request: "tequestpage",
     quickLinks: "Quick Links",
     emergencyHelp: "Emergency Help",
     aboutAbuse: "Understanding Domestic Abuse",

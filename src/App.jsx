@@ -8,7 +8,6 @@ import About from './pages/About';
 import Donation from './pages/Donation';
 import DomesticAbuse from './pages/DomesticAbuse';
 import Support from './pages/Support';
-import Request from './pages/Requests';
 import WhatWeDo from './pages/WhatWeDo';
 import EmergencyHelp from './pages/EmergencyHelp';
 import HomePage from './pages/HomePage';
@@ -150,10 +149,6 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <ProtectedRoute><Admin /></ProtectedRoute>,
-      },
-      {
-        path: "/request",
-        element: <Request />,
       }
     ],
   },

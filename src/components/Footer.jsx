@@ -39,8 +39,6 @@ const AppFooter = () => {
               <Link to="/donation" style={{ color: '#151515' }}>{t('footer.makeDonation')}</Link>
               <Link to="/donation-history" style={{ color: '#151515' }}>{t('footer.donationHistory')}</Link>
               <Link to="/admin" style={{ color: '#151515' }}>{t('footer.admin')}</Link>
-              <Link to="/request" style={{ color: '#151515' }}>{t('footer.request')}</Link>
-
             </div>
           </Col>
 
