@@ -29,7 +29,32 @@ export default {
     listen: "Listen without judgment",
     emotionalSupport: "Provide emotional support",
     options: "Help you understand your options",
-    connect: "Connect you with local services"
+    connect: "Connect you with local services",
+    onlineChat: {
+      title: "Online Chat",
+      startChat: "Start Confidential Chat",
+      description: "Chat with our support team online if you:",
+      point1: "Can't speak safely on the phone",
+      point2: "Prefer typing to talking",
+      point3: "Need immediate support",
+      point4: "Want to explore your options"
+    },
+    safety: {
+      title: "Quick Exit",
+      tips: "Safety Tips",
+      point1: "Press ESC key twice to quickly leave this site",
+      point2: "Clear your browser history after visiting",
+      point3: "Use private/incognito browsing",
+      point4: "Save emergency numbers under different names",
+      leaveButton: "Leave Site Quickly"
+    },
+    remember: {
+      title: "Remember",
+      point1: "You are not alone",
+      point2: "The abuse is not your fault",
+      point3: "Help is available",
+      point4: "Your life matters"
+    }
   },
   footer: {
     company: "Company",
@@ -175,5 +200,154 @@ export default {
         description: "Our educational programs help prevent abuse by raising awareness and promoting healthy relationships."
       }
     }
+  },
+  whatWeDo: {
+    title: "What We Do",
+    description: "At Don't Be Silent, we work tirelessly to support survivors of domestic abuse and create lasting change in our community. Our comprehensive approach combines immediate crisis support with long-term prevention strategies.",
+    mission: {
+      title: "Our Mission",
+      intro: "We are committed to:",
+      points: [
+        "Providing immediate support to those experiencing domestic abuse",
+        "Creating awareness about domestic abuse in our communities",
+        "Advocating for stronger protection and support for survivors",
+        "Preventing future abuse through education and intervention"
+      ]
+    },
+    approach: {
+      title: "Our Approach",
+      crisis: {
+        title: "Crisis Response",
+        description: "24/7 helpline, emergency accommodation, and immediate safety planning"
+      },
+      support: {
+        title: "Support & Recovery",
+        description: "Counseling services, support groups, and practical assistance"
+      },
+      prevention: {
+        title: "Prevention & Education",
+        description: "Community workshops, school programs, and professional training"
+      },
+      advocacy: {
+        title: "Advocacy & Change",
+        description: "Policy advocacy, research, and public awareness campaigns"
+      }
+    },
+    services: {
+      title: "Our Services",
+      crisis: {
+        title: "Crisis Support",
+        points: [
+          "24/7 Helpline",
+          "Emergency Accommodation",
+          "Safety Planning",
+          "Crisis Intervention"
+        ]
+      },
+      counseling: {
+        title: "Counseling",
+        points: [
+          "Individual Counseling",
+          "Group Support",
+          "Children's Services",
+          "Trauma Support"
+        ]
+      },
+      practical: {
+        title: "Practical Help",
+        points: [
+          "Legal Support",
+          "Housing Assistance",
+          "Financial Advice",
+          "Court Accompaniment"
+        ]
+      },
+      prevention: {
+        title: "Prevention",
+        points: [
+          "Education Programs",
+          "Training Workshops",
+          "Community Outreach",
+          "Awareness Campaigns"
+        ]
+      }
+    },
+    impact: {
+      title: "Our Impact",
+      support: "Support Available",
+      helped: "People Helped Annually",
+      volunteers: "Trained Volunteers",
+      partners: "Community Partners"
+    }
+  },
+  donate: {
+    title: 'Donate :$'
+  },
+  signIn: {
+    signingIn: 'Signing in...',
+    title: 'Sign In',
+    emailLabel: 'Email',
+    emailRequired: 'Please input your email!',
+    emailInvalid: 'Please enter a valid email!',
+    passwordLabel: 'Password',
+    passwordRequired: 'Please input your password!',
+    passwordMinLength: 'Password must be at least 6 characters!',
+    signInButton: 'Sign In',
+    noAccount: "Don't have an account?",
+    signUpLink: 'Sign Up',
+    loginFailed: 'Login failed. Please check your credentials.',
+    connectionFailed: 'Failed to connect to server. Please check your internet connection.',
+    loginSuccess: 'Login successful!'
+  },
+  signUp: {
+    signingUp: 'Signing up...',
+    title: 'Sign Up',
+    nameLabel: 'Full Name',
+    nameRequired: 'Please input your name!',
+    emailLabel: 'Email',
+    emailRequired: 'Please input your email!',
+    emailInvalid: 'Please enter a valid email!',
+    passwordLabel: 'Password',
+    passwordRequired: 'Please input your password!',
+    passwordMinLength: 'Password must be at least 6 characters!',
+    confirmPasswordLabel: 'Confirm Password',
+    confirmPasswordRequired: 'Please confirm your password!',
+    passwordsMatchError: 'Passwords do not match!',
+    profileImageLabel: 'Profile Image',
+    uploadImageButton: 'Upload Profile Image',
+    signUpButton: 'Sign Up',
+    haveAccount: 'Already have an account?',
+    signInLink: 'Sign In',
+    registrationSuccess: 'Registration successful!',
+    registrationFailed: 'Registration failed',
+    uploadSuccess: 'Image uploaded successfully',
+    uploadFailed: 'Upload failed',
+    uploadConnectionFailed: 'Failed to upload image',
+    connectionFailed: 'Failed to connect to server'
+  },
+  donationHistory: { // Add new section
+    title: "All Donations",
+    date: "Date",
+    amount: "Amount",
+    type: "Type",
+    donor: "Donor",
+    filterUser: "Filter by user"
+  },
+  donation: {
+    selectAmountError: 'Please select or enter a donation amount',
+    signInRequired: 'Please sign in to make a donation',
+    successMessage: 'Thank you for your donation!',
+    processError: 'Failed to process donation',
+    connectionError: 'Failed to connect to server',
+    zeroFeesLabel: 'With zero fees',
+    withFeesLabel: 'With fees',
+    noCommissionsMessage: 'You can pay without commissions!',
+    enterAmountTitle: 'Enter a donation',
+    otherPaymentPlaceholder: 'Other payment',
+    donateNowButton: 'Donate Now',
+    helplineDescription: '₸5000 a month could help keep our Helpline running throughout the year so whenever a woman calls us fearing for her life, we can be there to support her.',
+    essentialsDescription: '₸10,000 a month could buy essentials for children arriving in our refuges, including blankets, pyjamas, and toiletries, to replace what they had to leave behind.',
+    useCounterButton: 'Use Counter Value',
+    currentCounterLabel: 'Current donation counter'
   }
 };

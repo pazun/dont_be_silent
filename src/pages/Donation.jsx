@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Typography, Card, Row, Col, Button, Form, Input, Tabs, message } from 'antd';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -10,6 +11,7 @@ const Donation = () => {
   const [userInfo, setUserInfo] = useState(null);
   const donationAmounts = [100, 500, 1000, 1500, 5000, 10000];
   const counterValue = useSelector((state) => state.counter.value);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -44,14 +46,14 @@ const Donation = () => {
 
   const onFinish = async () => {
     if (!selectedAmount) {
-      message.error('Please select or enter a donation amount');
+      message.error(t('donation.selectAmountError'));
       return;
     }
 
     try {
       const token = localStorage.getItem('token');
       if (!token) {
-        message.error('Please sign in to make a donation');
+        message.error(t('donation.signInRequired'));
         return;
       }
 
@@ -70,24 +72,24 @@ const Donation = () => {
       const data = await response.json();
 
       if (response.ok) {
-        message.success('Thank you for your donation!');
+        message.success(t('donation.successMessage'));
         setSelectedAmount(null);
       } else {
-        message.error(data.error || 'Failed to process donation');
+        message.error(data.error || t('donation.processError'));
       }
     } catch (error) {
-      message.error('Failed to connect to server');
+      message.error(t('donation.connectionError'));
     }
   };
 
   const items = [
     {
       key: 'zero',
-      label: 'With zero fees',
+      label: t('donation.zeroFeesLabel'),
       children: (
         <div>
           <div style={{ marginBottom: '24px' }}>
-            <Title level={4} style={{ marginBottom: '16px' }}>Enter a donation</Title>
+            <Title level={4} style={{ marginBottom: '16px' }}>{t('donation.enterAmountTitle')}</Title>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '16px' }}>
               {donationAmounts.map((amount) => (
                 <Button
@@ -107,7 +109,7 @@ const Donation = () => {
             </div>
             <Input
               prefix="₸"
-              placeholder="Other payment"
+              placeholder={t('donation.otherPaymentPlaceholder')}
               style={{ width: '100%', marginBottom: '16px' }}
               value={selectedAmount || ''}
               onChange={(e) => {
@@ -117,24 +119,22 @@ const Donation = () => {
                 }
               }}
             />
-            <Button 
-              type="primary" 
-              block 
+            <Button
+              type="primary"
+              block
               size="large"
               onClick={onFinish}
               disabled={!selectedAmount}
             >
-              Donate Now
+              {t('donation.donateNowButton')}
             </Button>
           </div>
           <div style={{ marginTop: '24px' }}>
             <Paragraph>
-              ₸5000 a month could help keep our Helpline running throughout the year
-              so whenever a woman calls us fearing for her life, we can be there to support her.
+              {t('donation.helplineDescription')}
             </Paragraph>
             <Paragraph>
-              ₸10,000 a month could buy essentials for children arriving in our refuges,
-              including blankets, pyjamas, and toiletries, to replace what they had to leave behind.
+              {t('donation.essentialsDescription')}
             </Paragraph>
           </div>
         </div>
@@ -142,8 +142,8 @@ const Donation = () => {
     },
     {
       key: 'withcom',
-      label: 'With fees',
-      children: 'You can pay without commissions!',
+      label: t('donation.withFeesLabel'),
+      children: t('donation.noCommissionsMessage'),
     },
   ];
 
@@ -161,14 +161,14 @@ const Donation = () => {
           }}
         />
         <div style={{ marginTop: '16px', display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <Button 
-            type="primary" 
+          <Button
+            type="primary"
             onClick={handleUseCounterValue}
           >
-            Use Counter Value
+            {t('donation.useCounterButton')}
           </Button>
           <Paragraph style={{ margin: 0 }}>
-            Current donation counter: {counterValue}₸
+            {t('donation.currentCounterLabel')}: {counterValue}₸
           </Paragraph>
         </div>
       </Card>

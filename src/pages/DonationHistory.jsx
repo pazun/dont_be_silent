@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Layout, Table, Typography, Card, Select } from 'antd';
 import { DollarOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -10,6 +11,7 @@ const DonationHistory = () => {
   const [donations, setDonations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filterUser, setFilterUser] = useState(null);
+  const { t } = useTranslation(); // Get the translation function
 
   useEffect(() => {
     const fetchDonations = async () => {
@@ -34,7 +36,7 @@ const DonationHistory = () => {
 
   const columns = [
     {
-      title: 'Date',
+      title: t('donationHistory.date'), // Use translation key
       dataIndex: 'donation_date',
       key: 'date',
       render: (date) => new Date(date).toLocaleDateString(),
@@ -42,19 +44,19 @@ const DonationHistory = () => {
       defaultSortOrder: 'descend'
     },
     {
-      title: 'Amount',
+      title: t('donationHistory.amount'), // Use translation key
       dataIndex: 'amount',
       key: 'amount',
       render: (amount) => `${amount}₸`,
       sorter: (a, b) => a.amount - b.amount
     },
     {
-      title: 'Type',
+      title: t('donationHistory.type'), // Use translation key
       dataIndex: 'type',
       key: 'type'
     },
     {
-      title: 'Donor',
+      title: t('donationHistory.donor'), // Use translation key
       dataIndex: 'name',
       key: 'name'
     }
@@ -64,11 +66,11 @@ const DonationHistory = () => {
     <Content style={{ padding: '24px', minHeight: 280 }}>
       <Card bordered={false}>
         <Title level={2} style={{ marginBottom: '24px' }}>
-          <DollarOutlined /> All Donations
+          <DollarOutlined /> {t('donationHistory.title')} {/* Use translation key */}
         </Title>
         <div style={{ marginBottom: 16 }}>
           <Select
-            placeholder="Filter by user"
+            placeholder={t('donationHistory.filterUser')} // Use translation key
             style={{ width: 200 }}
             allowClear
             onChange={setFilterUser}

@@ -3,6 +3,7 @@ import { Layout, Typography, Card, Row, Col, Pagination, Spin } from 'antd';
 import { BookOutlined } from '@ant-design/icons';
 import QuotesList from '../components/QuotesList';
 import { useGetQuotesQuery } from '../store/quotesApi';
+import { useTranslation } from 'react-i18next';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -18,19 +19,19 @@ const About = () => {
     setCurrentPage(page);
   };
 
+  const { t } = useTranslation();
+
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
       <Typography>
-        <Title level={2}>About Don't Be Silent</Title>
+        <Title level={2}>{t('aboutUs.title', 'About Don\'t Be Silent')}</Title>
         <Paragraph>
-          Don't Be Silent is dedicated to supporting those affected by domestic abuse.
-          Our mission is to provide a safe space for survivors, raise awareness about
-          domestic abuse, and work towards creating a society free from violence.
+          {t('aboutUs.description', 'Don\'t Be Silent is dedicated to supporting those affected by domestic abuse. Our mission is to provide a safe space for survivors, raise awareness about domestic abuse, and work towards creating a society free from violence.')}
         </Paragraph>
       </Typography>
 
       <Title level={3} style={{ marginTop: '24px' }}>
-        <BookOutlined /> What people think about us
+        <BookOutlined /> {t('aboutUs.testimonials', 'What people think about us')}
       </Title>
 
       {isLoading ? (
@@ -61,27 +62,24 @@ const About = () => {
       )}
 
       <Card style={{ marginTop: '24px', background: '#FFF4F4' }}>
-        <Title level={4}>Our Values</Title>
+        <Title level={4}>{t('aboutUs.values.title', 'Our Values')}</Title>
         <Row gutter={[16, 16]}>
           <Col xs={24} md={8}>
-            <Title level={5}>Support</Title>
+            <Title level={5}>{t('aboutUs.values.support.title', 'Support')}</Title>
             <Paragraph>
-              We provide comprehensive support services to help survivors rebuild their lives
-              and find safety, healing, and hope.
+              {t('aboutUs.values.support.description', 'We provide comprehensive support services to help survivors rebuild their lives and find safety, healing, and hope.')}
             </Paragraph>
           </Col>
           <Col xs={24} md={8}>
-            <Title level={5}>Education</Title>
+            <Title level={5}>{t('aboutUs.values.education.title', 'Education')}</Title>
             <Paragraph>
-              Through education and awareness programs, we work to prevent domestic abuse
-              and promote healthy relationships.
+              {t('aboutUs.values.education.description', 'Through education and awareness programs, we work to prevent domestic abuse and promote healthy relationships.')}
             </Paragraph>
           </Col>
           <Col xs={24} md={8}>
-            <Title level={5}>Advocacy</Title>
+            <Title level={5}>{t('aboutUs.values.advocacy.title', 'Advocacy')}</Title>
             <Paragraph>
-              We advocate for policies and practices that protect survivors and hold
-              abusers accountable.
+              {t('aboutUs.values.advocacy.description', 'We advocate for policies and practices that protect survivors and hold abusers accountable.')}
             </Paragraph>
           </Col>
         </Row>

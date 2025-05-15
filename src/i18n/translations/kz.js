@@ -20,16 +20,41 @@ export default {
     signOut: "Shyǵu"
   },
   emergency: {
-    title: "Jedel kómek 24/7 qoljetimdi",
+    title: "Onlaın chat",
+    startChat: "Qupıa chatty bastau",
     callNow: "Eger siz qauipti jaǵdaıda bolsańyz, qońyraw shalyńyz",
     immediately: "derew.",
     priority: "Sizdiń qauipsizdigińiz - bizdiń basty basymdyǵymyz. Biz sizge kómektesu úshin osyndaǵymyz, baryq qyzmetterimiz tegin jáne qypıa.",
     helpline: "Senim telefony",
-    supportWorkers: "Bizdiń bilikti mamandarymyz 24/7 qoljetimdi",
-    listen: "Sizdi aıptamaı tıńdaw",
-    emotionalSupport: "Emocıonaldy qoldaw kórsetu",
-    options: "Sizdiń mýmkindikterińizdi túsinuge kómektesu",
-    connect: "Jerlikti qoldaw qyzmetterimen baylanystyru"
+    description: "Eger siz kelesi jaǵdaıda bolsańyz, bizdiń qoldaý tobymen onlaın sóılesiń:",
+    point1: "Telefon arqyly qaýipsiz sóılese almaıdy",
+    point2: "Sóılesýden góri jazýdy qalaıdy",
+    point3: "Jedel kómek qajet",
+    point4: "Ózińizdiń múmkindikterińizdi bilgińiz keledi",
+    onlineChat: {
+      title: "Jedel kómek 24/7 qoljetimdi",
+      supportWorkers: "Bizdiń bilikti mamandarymyz 24/7 qoljetimdi",
+      listen: "Sizdi aıptamaı tıńdaw",
+      emotionalSupport: "Emocıonaldy qoldaw kórsetu",
+      options: "Sizdiń mýmkindikterińizdi túsinuge kómektesu",
+      connect: "Jerlikti qoldaw qyzmetterimen baylanystyru"
+    },
+    safety: {
+      title: "Tez shyǵý",
+      tips: "Qaýipsizdik keńesteri",
+      point1: "Saıttan tez shyǵý úshin ESC pernesin eki ret basyńyz",
+      point2: "Saıtqa kirgennen keıin braýzer tarıhyn tazalańyz",
+      point3: "Jeke/inkognito rejimin paıdalanyńyz",
+      point4: "Tótenshe nómirlerdi basqa attarmen saqtańyz",
+      leaveButton: "Saıttan tez shyǵý"
+    },
+    remember: {
+      title: "Este saqtańyz",
+      point1: "Siz jalǵyz emessiz",
+      point2: "Zorlyq-zombylyq sizdiń kináńiz emes",
+      point3: "Kómek qoljetimdi",
+      point4: "Sizdiń ómirińiz mańyzdy"
+    }
   },
   footer: {
     company: "Kompaniıa",
@@ -175,5 +200,92 @@ export default {
         description: "Bizdiń bilim berý baǵdarlamalary habardarlyqty arttyrý jáne salawatty qarym-qatynas arqyly zorlyq-zombylyqtyń aldyn alýǵa kómektesedi."
       }
     }
+  },
+  aboutUs: {
+    title: "Don't Be Silent turaly",
+    description: "Don't Be Silent túrmystyq zorlyq-zombylyqtan zardap shekkenderge qoldaý kórsetýge arnalǵan. Bizdiń missiıamyz - aman qalǵandar úshin qaýipsiz keńistik qurý, túrmystyq zorlyq-zombylyq týraly habardarlyqty arttyrý jáne zorlyq-zombylyqtan azat qoǵam qurý úshin jumys isteý.",
+    testimonials: "Adamdar biz týraly ne oılaıdy",
+    values: {
+      title: "Bizdiń qundylyqtarymyz",
+      support: {
+        title: "Qoldaý",
+        description: "Biz aman qalǵandardyń ómirin qaıta qurýǵa, qaýipsizdik, sauygý jáne úmit tabýǵa kómektesý úshin jalpylaı qoldaý qyzmeterin kórsetemiz."
+      },
+      education: {
+        title: "Bilim berý",
+        description: "Bilim berý jáne habardarlyq baǵdarlamalary arqyly biz túrmystyq zorlyq-zombylyqtyń aldyn alý jáne salawatty qarym-qatynasty nasıhattaý úshin jumys isteımiz."
+      },
+      advocacy: {
+        title: "Qorǵaý",
+        description: "Biz aman qalǵandardy qorǵaıtyn jáne qıanshylardy jaýapqa tartý úshin saıasat pen praktıkany qoldaımyz."
+      }
+    }
+  },
+  signIn: {
+    signingIn: 'Kirý...',
+    title: 'Kirý',
+    emailLabel: 'Email',
+    emailRequired: 'Email-dy engizińiz!',
+    emailInvalid: 'Durys email-dy engizińiz!',
+    passwordLabel: 'Qupıasóz',
+    passwordRequired: 'Qupıasózdi engizińiz!',
+    passwordMinLength: 'Qupıasóz kem degende 6 belgiden turýy kerek!',
+    signInButton: 'Kirý',
+    noAccount: "Akkaýntyńyz joq pa?",
+    signUpLink: 'Tirkelý',
+    loginFailed: 'Kirý sátsiz boldy. Tirkelý derekterin tekserińiz.',
+    connectionFailed: 'Serverge qosylý sátsiz boldy. Internet baılanysyn tekserińiz.',
+    loginSuccess: 'Kirý sátti boldy!'
+  },
+  signUp: {
+    signingUp: 'Tirkelý...',
+    title: 'Tirkelý',
+    nameLabel: 'Tolıq aty',
+    nameRequired: 'Atyńyzdy engizińiz!',
+    emailLabel: 'Email',
+    emailRequired: 'Email-dy engizińiz!',
+    emailInvalid: 'Durys email-dy engizińiz!',
+    passwordLabel: 'Qupıasóz',
+    passwordRequired: 'Qupıasózdi engizińiz!',
+    passwordMinLength: 'Qupıasóz kem degende 6 belgiden turýy kerek!',
+    confirmPasswordLabel: 'Qupıasózdi rastau',
+    confirmPasswordRequired: 'Qupıasózdi rastau kerek!',
+    passwordsMatchError: 'Qupıasózder sáıkes kelmeıdi!',
+    profileImageLabel: 'Profıl sýreti',
+    uploadImageButton: 'Profıl sýretin júkteý',
+    signUpButton: 'Tirkelý',
+    haveAccount: 'Akkaýntyńyz bar ma?',
+    signInLink: 'Kirý',
+    registrationSuccess: 'Tirkelý sátti ótti!',
+    registrationFailed: 'Tirkelý sátsiz boldy',
+    uploadSuccess: 'Sýret sátti júkteldi',
+    uploadFailed: 'Júkteý sátsiz boldy',
+    uploadConnectionFailed: 'Sýretti júkteý sátsiz boldy',
+    connectionFailed: 'Serverge qosylý sátsiz boldy'
+  },
+  donationHistory: {
+    title: "Barlyq qaıyrymdylyqtar",
+    date: "Kúni",
+    amount: "Somasy",
+    type: "Túri",
+    donor: "Donaıýshy",
+    filterUser: "Paıdalanýshy boıynsha fıltrleý"
+  },
+  donation: {
+    selectAmountError: 'Qaıyrymdylyq somasyn tańdańyz nemese engizińiz',
+    signInRequired: 'Qaıyrymdylyq jasau úshin kirýińiz kerek',
+    successMessage: 'Qaıyrymdylyǵyńyz úshin raxmet!',
+    processError: 'Qaıyrymdylyqty óńdeý sátsiz boldy',
+    connectionError: 'Serverge qosylý sátsiz boldy',
+    zeroFeesLabel: 'Komissiıasyz',
+    withFeesLabel: 'Komissiıamen',
+    noCommissionsMessage: 'Komissiıasyz tóleýge bolady!',
+    enterAmountTitle: 'Qaıyrymdylyq somasyn engizińiz',
+    otherPaymentPlaceholder: 'Basqa tólem',
+    donateNowButton: 'Qaıyrymdylyq jasaý',
+    helplineDescription: 'Aıyna 5000₸ bizdiń senim telefon jelisin jyl boıy jumys isteýine kómektesedi, sondaı-aq áıel ómiri úshin qorqyp qońyrau shalǵanda, biz ony qoldaý úshin sol jerde bola alamyz.',
+    essentialsDescription: 'Aıyna 10 000₸ bizdiń panaǵa kelgen balalarǵa kerek-jaraqtardy satyp alýǵa kómektesedi, onyń ishinde kórpe, pıjama jáne dástúrli zattar, olar artynda qaldyrǵan zattardyń ornyna.',
+    useCounterButton: 'Esepteýish mándi paıdalaný',
+    currentCounterLabel: 'Aǵymdaǵy qaıyrymdylyq esepteýishi'
   }
 };

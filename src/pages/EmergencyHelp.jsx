@@ -40,20 +40,19 @@ const EmergencyHelp = () => {
 
         <Col xs={24} md={8}>
           <Card
-            title={<><MessageOutlined /> Online Chat</>
-            }
+            title={<><MessageOutlined /> {t('emergency.onlineChat.title')}</>}
             bordered={false}
           >
             <Button type="primary" size="large" block style={{ marginBottom: '16px' }}>
-              Start Confidential Chat
+              {t('emergency.onlineChat.startChat')}
             </Button>
             <Paragraph>
-              Chat with our support team online if you:
+              {t('emergency.onlineChat.description')}
               <ul>
-                <li>Can't speak safely on the phone</li>
-                <li>Prefer typing to talking</li>
-                <li>Need immediate support</li>
-                <li>Want to explore your options</li>
+                <li>{t('emergency.onlineChat.point1')}</li>
+                <li>{t('emergency.onlineChat.point2')}</li>
+                <li>{t('emergency.onlineChat.point3')}</li>
+                <li>{t('emergency.onlineChat.point4')}</li>
               </ul>
             </Paragraph>
           </Card>
@@ -61,34 +60,33 @@ const EmergencyHelp = () => {
 
         <Col xs={24} md={8}>
           <Card
-            title={<><SafetyOutlined /> Quick Exit</>
-            }
+            title={<><SafetyOutlined /> {t('emergency.safety.title')}</>}
             bordered={false}
           >
             <Paragraph>
-              <Text strong>Safety Tips:</Text>
+              <Text strong>{t('emergency.safety.tips')}:</Text>
               <ul>
-                <li>Press ESC key twice to quickly leave this site</li>
-                <li>Clear your browser history after visiting</li>
-                <li>Use private/incognito browsing</li>
-                <li>Save emergency numbers under different names</li>
+                <li>{t('emergency.safety.point1')}</li>
+                <li>{t('emergency.safety.point2')}</li>
+                <li>{t('emergency.safety.point3')}</li>
+                <li>{t('emergency.safety.point4')}</li>
               </ul>
             </Paragraph>
             <Button danger block>
-              Leave Site Quickly
+              {t('emergency.safety.leaveButton')}
             </Button>
           </Card>
         </Col>
       </Row>
 
       <Card style={{ marginTop: '24px', background: '#FFF4F4' }}>
-        <Title level={4}>Remember:</Title>
+        <Title level={4}>{t('emergency.remember.title')}:</Title>
         <Paragraph>
           <ul>
-            <li>You are not alone</li>
-            <li>The abuse is not your fault</li>
-            <li>Help is available</li>
-            <li>Your life matters</li>
+            <li>{t('emergency.remember.point1')}</li>
+            <li>{t('emergency.remember.point2')}</li>
+            <li>{t('emergency.remember.point3')}</li>
+            <li>{t('emergency.remember.point4')}</li>
           </ul>
         </Paragraph>
       </Card>
