@@ -2,12 +2,21 @@ import React from 'react';
 import { Layout, Typography, Card, Row, Col, Button } from 'antd';
 import { HeartOutlined, TeamOutlined, SoundOutlined, DollarOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 const Support = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleDonateClick = () => {
+    navigate('/donation');
+  };
+  const handleAbout = () => {
+    navigate('/about');
+  };
 
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
@@ -33,7 +42,7 @@ const Support = () => {
                 ))}
               </ul>
             </Paragraph>
-            <Button type="primary" block>
+            <Button type="primary" block onClick={handleDonateClick}>
               {t('support.donate.button')}
             </Button>
           </Card>
@@ -53,7 +62,7 @@ const Support = () => {
                 ))}
               </ul>
             </Paragraph>
-            <Button type="primary" block>
+            <Button type="primary" block onClick={handleAbout}>
               {t('support.volunteer.button')}
             </Button>
           </Card>
@@ -73,7 +82,7 @@ const Support = () => {
                 ))}
               </ul>
             </Paragraph>
-            <Button type="primary" block>
+            <Button type="primary" block onClick={handleAbout}>
               {t('support.awareness.button')}
             </Button>
           </Card>
@@ -93,7 +102,7 @@ const Support = () => {
                 ))}
               </ul>
             </Paragraph>
-            <Button type="primary" block>
+            <Button type="primary" block onClick={handleAbout}>
               {t('support.corporate.button')}
             </Button>
           </Card>

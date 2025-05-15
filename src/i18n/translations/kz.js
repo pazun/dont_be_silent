@@ -42,7 +42,7 @@ export default {
     safety: {
       title: "Tez shyǵý",
       tips: "Qaýipsizdik keńesteri",
-      point1: "Saıttan tez shyǵý úshin ESC pernesin eki ret basyńyz",
+      point1: "Saıttan tez shyǵý Alt+F4/Cmd+q pernesin eki ret basyńyz",
       point2: "Saıtqa kirgennen keıin braýzer tarıhyn tazalańyz",
       point3: "Jeke/inkognito rejimin paıdalanyńyz",
       point4: "Tótenshe nómirlerdi basqa attarmen saqtańyz",
@@ -290,5 +290,22 @@ export default {
     essentialsDescription: 'Aıyna 10 000₸ bizdiń panaǵa kelgen balalarǵa kerek-jaraqtardy satyp alýǵa kómektesedi, onyń ishinde kórpe, pıjama jáne dástúrli zattar, olar artynda qaldyrǵan zattardyń ornyna.',
     useCounterButton: 'Esepteýish mándi paıdalaný',
     currentCounterLabel: 'Aǵymdaǵy qaıyrymdylyq esepteýishi'
+  },
+  confidentialChat: {
+    title: "Qupıa chat týraly aqparat",
+    intro: "Bul qupıa chat qyzmeti qoldaý qyzmetkerlerimen baılanysý úshin qaýipsiz jáne jeke keńistik berýge arnalǵan. Sizdiń áńgimelerińiz qupıa saqtalady.",
+    howItWorksTitle: "Chat qalaı jumys isteıdi",
+    howItWorksDescription: "Chatty bastaǵanyńyzda, sizge kómek kórsete alatyn oqytylǵan qoldaý qyzmetkeri baılanysqa shyǵady:",
+    point1: "Belendi tyńdaý jáne emosıonaldy qoldaý",
+    point2: "Sizdiń múmkindikterińiz ben quqyqtaryńyz týraly aqparat",
+    point3: "Qaýipsizdikti josparlaýǵa kómek",
+    point4: "Qajet bolsa, qosymsha resýrstarǵa joldama",
+    importantNotesTitle: "Mańyzdy eskertpeler",
+    importantNotesDescription: "Kelesini este saqtańyz:",
+    note1: "Bul chat jedel járdem qyzmetterin almaıdy. Eger siz tikeleı qaýipte bolsańyz, 999 nómirine qońyrau shalyńyz.",
+    note2: "Biz qupıalylyqty saqtaýǵa tyrysamyz, biraq bólistin aqparatqa muqıat bolyńyz.",
+    note3: "Chatty bastaýdan buryn qaýipsiz ortada ekenińizge kóz jetkizińiz.",
+    closing: "Biz sizdi qoldaý úshin osy jerde turmyz. Daıyn bolǵanyńyzda, jedel járdem betinen chatty bastaýǵa bolady.",
+    backButton: "Artqa" 
   }
 };

@@ -2,13 +2,24 @@ import React from 'react';
 import { Layout, Typography, Card, Row, Col, Button } from 'antd';
 import { PhoneOutlined, MessageOutlined, SafetyOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
 const EmergencyHelp = () => {
   const { t } = useTranslation();
-  
+  const navigate = useNavigate();
+
+  const handleStartChat = () => {
+    navigate('/confidential-chat'); 
+  };
+
+  const handleLogoutAndLeave = () => {
+    localStorage.removeItem('token');
+    navigate('/signin');
+  };
+
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
       <Typography>
@@ -43,7 +54,13 @@ const EmergencyHelp = () => {
             title={<><MessageOutlined /> {t('emergency.onlineChat.title')}</>}
             bordered={false}
           >
-            <Button type="primary" size="large" block style={{ marginBottom: '16px' }}>
+            <Button
+              type="primary"
+              size="large"
+              block
+              style={{ marginBottom: '16px' }}
+              onClick={handleStartChat}
+            >
               {t('emergency.onlineChat.startChat')}
             </Button>
             <Paragraph>
@@ -72,7 +89,7 @@ const EmergencyHelp = () => {
                 <li>{t('emergency.safety.point4')}</li>
               </ul>
             </Paragraph>
-            <Button danger block>
+            <Button danger block onClick={handleLogoutAndLeave}> {/* Add onClick handler */}
               {t('emergency.safety.leaveButton')}
             </Button>
           </Card>

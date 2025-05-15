@@ -42,7 +42,7 @@ export default {
     safety: {
       title: "Quick Exit",
       tips: "Safety Tips",
-      point1: "Press ESC key twice to quickly leave this site",
+      point1: "Press Alt+F4/Cmd+q key to quickly leave this site",
       point2: "Clear your browser history after visiting",
       point3: "Use private/incognito browsing",
       point4: "Save emergency numbers under different names",
@@ -349,5 +349,22 @@ export default {
     essentialsDescription: '₸10,000 a month could buy essentials for children arriving in our refuges, including blankets, pyjamas, and toiletries, to replace what they had to leave behind.',
     useCounterButton: 'Use Counter Value',
     currentCounterLabel: 'Current donation counter'
+  },
+  confidentialChat: {
+    title: "Confidential Chat Information",
+    intro: "This confidential chat service is designed to provide a safe and private space for you to connect with support workers. Your conversations are kept confidential.",
+    howItWorksTitle: "How the Chat Works",
+    howItWorksDescription: "When you start a chat, you will be connected with a trained support worker who can provide:",
+    point1: "Active listening and emotional support",
+    point2: "Information about your options and rights",
+    point3: "Assistance with safety planning",
+    point4: "Referrals to additional resources if needed",
+    importantNotesTitle: "Important Notes",
+    importantNotesDescription: "Please keep the following in mind:",
+    note1: "This chat is not a substitute for emergency services. If you are in immediate danger, please call 999.",
+    note2: "While we strive for confidentiality, please be mindful of the information you share.",
+    note3: "Ensure you are in a safe environment before starting a chat.",
+    closing: "We are here to support you. When you are ready, you can start the chat from the Emergency Help page.",
+    backButton: "Back" // Add translation key
   }
 };

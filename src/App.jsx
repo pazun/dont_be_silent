@@ -16,6 +16,7 @@ import SignUp from './pages/SignUp';
 import User from './pages/User';
 import Admin from './pages/Admin';
 import DonationHistory from './pages/DonationHistory';
+import ConfidentialChat from './pages/ConfidentialChat'; // Import ConfidentialChat
 import { customTheme, lightTheme, darkTheme } from './theme/theme';
 import ErrorPage from './pages/ErrorPage';
 import Notifications from './components/Notifications';
@@ -149,6 +150,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <ProtectedRoute><Admin /></ProtectedRoute>,
+      },
+      { // Add the new route for ConfidentialChat
+        path: "/confidential-chat",
+        element: <ProtectedRoute><ConfidentialChat /></ProtectedRoute>,
       }
     ],
   },
