@@ -281,7 +281,7 @@ export default {
     }
   },
   donate: {
-    title: 'Donate :$'
+    title: 'Donate : KZT '
   },
   signIn: {
     signingIn: 'Signing in...',
@@ -325,7 +325,7 @@ export default {
     uploadConnectionFailed: 'Failed to upload image',
     connectionFailed: 'Failed to connect to server'
   },
-  donationHistory: { // Add new section
+  donationHistory: {
     title: "All Donations",
     date: "Date",
     amount: "Amount",

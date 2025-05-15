@@ -263,6 +263,9 @@ export default {
     uploadConnectionFailed: 'Sýretti júkteý sátsiz boldy',
     connectionFailed: 'Serverge qosylý sátsiz boldy'
   },
+  donate: {
+    title: 'Aǵymdaǵy : KZT '
+  },
   donationHistory: {
     title: "Barlyq qaıyrymdylyqtar",
     date: "Kúni",

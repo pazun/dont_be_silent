@@ -301,7 +301,7 @@ export default {
     }
   },
   donate: {
-    title: 'Донат :₽'
+    title: 'Донат : KZT '
   },
   signIn: {
     signingIn: 'Вход...',
