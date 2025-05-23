@@ -307,5 +307,21 @@ export default {
     note3: "Chatty bastaýdan buryn qaýipsiz ortada ekenińizge kóz jetkizińiz.",
     closing: "Biz sizdi qoldaý úshin osy jerde turmyz. Daıyn bolǵanyńyzda, jedel járdem betinen chatty bastaýǵa bolady.",
     backButton: "Artqa" 
+  },
+  payment: {
+    title: 'Töleme aqparaty',
+    cardHolder: 'Kartanyñ iesiniñ aty',
+    cardHolderPlaceholder: 'Kartanyñ iesiniñ atyn engiziñiz',
+    cardHolderRequired: 'Kartanyñ iesiniñ atyn engiziñiz',
+    cardNumber: 'Karta nomeri',
+    cardNumberRequired: 'Karta nomerin engiziñiz',
+    expiryDate: 'Mерзімі',
+    expiryDateRequired: 'Mерзімін engiziñiz',
+    cvv: 'CVV',
+    cvvRequired: 'CVV kodyn engiziñiz',
+    amount: 'Somasy',
+    amountRequired: 'Somany engiziñiz',
+    submitButton: 'Töleu',
+    cancelButton: 'Bası tartu'
   }
 };
