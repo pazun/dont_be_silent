@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Typography, Card, Row, Col, Button, Form, Input, Tabs, message } from 'antd';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -12,6 +13,7 @@ const Donation = () => {
   const donationAmounts = [100, 500, 1000, 1500, 5000, 10000];
   const counterValue = useSelector((state) => state.counter.value);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -50,36 +52,8 @@ const Donation = () => {
       return;
     }
 
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        message.error(t('donation.signInRequired'));
-        return;
-      }
+    navigate('/payment', { state: { amount: selectedAmount } });
 
-      const response = await fetch('http://localhost:3000/api/donations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          amount: selectedAmount,
-          type: 'one-time'
-        })
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        message.success(t('donation.successMessage'));
-        setSelectedAmount(null);
-      } else {
-        message.error(data.error || t('donation.processError'));
-      }
-    } catch (error) {
-      message.error(t('donation.connectionError'));
-    }
   };
 
   const items = [

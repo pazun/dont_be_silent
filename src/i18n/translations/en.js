@@ -366,5 +366,21 @@ export default {
     note3: "Ensure you are in a safe environment before starting a chat.",
     closing: "We are here to support you. When you are ready, you can start the chat from the Emergency Help page.",
     backButton: "Back" // Add translation key
+  },
+  payment: {
+    title: 'Payment Information',
+    cardHolder: 'Card Holder Name',
+    cardHolderPlaceholder: 'Enter card holder name',
+    cardHolderRequired: 'Please enter card holder name',
+    cardNumber: 'Card Number',
+    cardNumberRequired: 'Please enter card number',
+    expiryDate: 'Expiry Date',
+    expiryDateRequired: 'Please enter expiry date',
+    cvv: 'CVV',
+    cvvRequired: 'Please enter CVV',
+    amount: 'Amount',
+    amountRequired: 'Please enter amount',
+    submitButton: 'Pay Now',
+    cancelButton: 'Cancel'
   }
 };

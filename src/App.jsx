@@ -13,6 +13,7 @@ import EmergencyHelp from './pages/EmergencyHelp';
 import HomePage from './pages/HomePage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import Payment from './pages/Payment';
 import User from './pages/User';
 import Admin from './pages/Admin';
 import DonationHistory from './pages/DonationHistory';
@@ -151,9 +152,13 @@ const router = createBrowserRouter([
         path: "/admin",
         element: <ProtectedRoute><Admin /></ProtectedRoute>,
       },
-      { // Add the new route for ConfidentialChat
+      {
         path: "/confidential-chat",
         element: <ProtectedRoute><ConfidentialChat /></ProtectedRoute>,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       }
     ],
   },
