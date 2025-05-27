@@ -13,7 +13,7 @@ const User = () => {
   const [nameForm] = Form.useForm();
   const [settingsForm] = Form.useForm();
   const [imageUrl, setImageUrl] = useState('');
-  const { t, i18n } = useTranslation(); // Destructure t and i18n
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     fetchUserInfo();
