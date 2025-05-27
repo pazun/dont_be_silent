@@ -87,7 +87,7 @@ const Header = ({ isMobile, customTheme }) => {
             <Button 
               type="primary" 
               shape="round" 
-              onClick={() => navigate('/Call')}
+              href="tel:+77075200519" 
               icon={<PhoneOutlined />} 
               size="large" 
               style={{

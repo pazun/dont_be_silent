@@ -13,6 +13,7 @@ const User = () => {
   const [nameForm] = Form.useForm();
   const [settingsForm] = Form.useForm();
   const [imageUrl, setImageUrl] = useState('');
+  const { t, i18n } = useTranslation(); // Destructure t and i18n
 
   useEffect(() => {
     fetchUserInfo();
@@ -23,7 +24,7 @@ const User = () => {
     try {
       const token = localStorage.getItem('token');
       if (!token) {
-        message.error('Please sign in to view your profile');
+        message.error(t('user.signInToViewProfile'));
         return;
       }
 
@@ -36,12 +37,12 @@ const User = () => {
 
       if (response.ok) {
         setUserInfo(data);
-        console.log('User profile image path:', data.profile_image); // Add this line
+        console.log('User profile image path:', data.profile_image);
       } else {
-        message.error(data.error || 'Failed to fetch user information');
+        message.error(data.error || t('user.failedToFetchUserInfo'));
       }
     } catch (error) {
-      message.error('Failed to connect to server');
+      message.error(t('user.failedToConnectServer'));
     } finally {
       setLoading(false);
     }
@@ -51,7 +52,7 @@ const User = () => {
     try {
       const token = localStorage.getItem('token');
       if (!token) {
-        message.error('Please sign in to change your password');
+        message.error(t('user.signInToChangePassword'));
         return;
       }
 
@@ -70,13 +71,13 @@ const User = () => {
       const data = await response.json();
 
       if (response.ok) {
-        message.success('Password changed successfully');
+        message.success(t('user.passwordChangedSuccessfully'));
         form.resetFields();
       } else {
-        message.error(data.error || 'Failed to change password');
+        message.error(data.error || t('user.failedToChangePassword'));
       }
     } catch (error) {
-      message.error('Failed to connect to server');
+      message.error(t('user.failedToConnectServer'));
     }
   };
 
@@ -84,7 +85,7 @@ const User = () => {
     try {
       const token = localStorage.getItem('token');
       if (!token) {
-        message.error('Please sign in to change your name');
+        message.error(t('user.signInToChangeName'));
         return;
       }
 
@@ -102,14 +103,14 @@ const User = () => {
       const data = await response.json();
 
       if (response.ok) {
-        message.success('Name changed successfully');
+        message.success(t('user.nameChangedSuccessfully'));
         setUserInfo({ ...userInfo, name: values.newName });
         nameForm.resetFields();
       } else {
-        message.error(data.error || 'Failed to change name');
+        message.error(data.error || t('user.failedToChangeName'));
       }
     } catch (error) {
-      message.error('Failed to connect to server');
+      message.error(t('user.failedToConnectServer'));
     }
   };
 
@@ -125,10 +126,9 @@ const User = () => {
 
       const data = await response.json();
       if (response.ok) {
-        message.success('Image uploaded successfully');
+        message.success(t('user.imageUploadedSuccessfully'));
         setImageUrl(data.filePath);
         
-        // Update profile image in the backend
         const token = localStorage.getItem('token');
         const updateResponse = await fetch('http://localhost:3000/api/auth/update-profile-image', {
           method: 'POST',
@@ -143,18 +143,18 @@ const User = () => {
 
         if (updateResponse.ok) {
           setUserInfo({ ...userInfo, profile_image: data.filePath });
-          message.success('Profile image updated successfully');
+          message.success(t('user.profileImageUpdatedSuccessfully'));
         } else {
-          message.error('Failed to update profile image');
+          message.error(t('user.failedToUpdateProfileImage'));
         }
         return true;
       } else {
-        message.error(data.error || 'Upload failed');
+        message.error(data.error || t('user.uploadFailed'));
         return false;
       }
     } catch (error) {
       console.error('Upload error:', error);
-      message.error('Failed to upload image');
+      message.error(t('user.failedToUploadImage'));
       return false;
     }
   };
@@ -179,13 +179,11 @@ const User = () => {
     }
   };
 
-  const { i18n } = useTranslation(); // Add this import at the top
-
   const onUpdateSettings = async (values) => {
     try {
       const token = localStorage.getItem('token');
       if (!token) {
-        message.error('Please sign in to update settings');
+        message.error(t('user.signInToUpdateSettings'));
         return;
       }
 
@@ -201,27 +199,26 @@ const User = () => {
       const data = await response.json();
 
       if (response.ok) {
-        message.success('Settings updated successfully');
-        // Add this line to change the language when settings are updated
+        message.success(t('user.settingsUpdatedSuccessfully'));
         if (values.language) {
           i18n.changeLanguage(values.language);
         }
       } else {
-        message.error(data.error || 'Failed to update settings');
+        message.error(data.error || t('user.failedToUpdateSettings'));
       }
     } catch (error) {
-      message.error('Failed to connect to server');
+      message.error(t('user.failedToConnectServer'));
     }
   };
 
   return (
     <Content style={{ padding: '24px', minHeight: 280 }}>
       <Spin spinning={loading}>
-        <Title level={2}>My Profile</Title>
+        <Title level={2}>{t('user.myProfile')}</Title>
         
         <Row gutter={[16, 16]}>
           <Col xs={24} md={12}>
-            <Card title="Personal Information">
+            <Card title={t('user.personalInformation')}>
               {userInfo && (
                 <>
                   <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
@@ -232,8 +229,10 @@ const User = () => {
                       style={{ marginRight: '16px' }}
                     />
                     <div>
-                      <p><Text strong>Name:</Text> {userInfo.name}</p>
-                      <p><Text strong>Email:</Text> {userInfo.email}</p>
+                      <p><Text strong>{t('user.name')}:</Text> {userInfo.name}</p>
+                      <p><Text strong>{t('user.email')}:</Text> {userInfo.email}</p>
+                      <p><Text strong>{t('user.image')}:</Text> {userInfo.profile_image}</p>
+                      <p><Text strong>{t('user.datereg')}:</Text> {"01.02.2025"}</p>
                     </div>
                   </div>
                   <Upload
@@ -246,14 +245,14 @@ const User = () => {
                         if (success) {
                           onSuccess('ok');
                         } else {
-                          onError(new Error('Upload failed'));
+                          onError(new Error(t('user.uploadFailed')));
                         }
                       } catch (error) {
                         onError(error);
                       }
                     }}
                   >
-                    <Button icon={<UploadOutlined />}>Change Profile Image</Button>
+                    <Button icon={<UploadOutlined />}>{t('user.changeProfileImage')}</Button>
                   </Upload>
                 </>
               )}
@@ -261,7 +260,7 @@ const User = () => {
           </Col>
 
           <Col xs={24} md={12}>
-            <Card title="Account Settings">
+            <Card title={t('user.accountSettings')}>
               <Form
                 form={settingsForm}
                 name="accountSettings"
@@ -275,39 +274,39 @@ const User = () => {
               >
                 <Form.Item
                   name="notifications"
-                  label="Notifications"
+                  label={t('user.notifications')}
                 >
                   <Switch 
-                    checkedChildren="On" 
-                    unCheckedChildren="Off"
+                    checkedChildren={t('user.on')}
+                    unCheckedChildren={t('user.off')}
                   />
                 </Form.Item>
 
                 <Form.Item
                   name="theme"
-                  label="Theme"
+                  label={t('user.theme')}
                 >
                   <Select>
-                    <Select.Option value="light">Light</Select.Option>
-                    <Select.Option value="dark">Dark</Select.Option>
-                    <Select.Option value="system">System</Select.Option>
+                    <Select.Option value="light">{t('user.light')}</Select.Option>
+                    <Select.Option value="dark">{t('user.dark')}</Select.Option>
+                    <Select.Option value="system">{t('user.system')}</Select.Option>
                   </Select>
                 </Form.Item>
 
                 <Form.Item
                   name="language"
-                  label="Language"
+                  label={t('user.language')}
                 >
                   <Select>
-                    <Select.Option value="en">English</Select.Option>
-                    <Select.Option value="kz">Qazaqşa</Select.Option>
-                    <Select.Option value="ru">Русский</Select.Option>
+                    <Select.Option value="en">{t('user.english')}</Select.Option>
+                    <Select.Option value="kz">{t('user.qazaqsha')}</Select.Option>
+                    <Select.Option value="ru">{t('user.russian')}</Select.Option>
                   </Select>
                 </Form.Item>
 
                 <Form.Item>
                   <Button type="primary" htmlType="submit" size="large" block>
-                    Save Settings
+                    {t('user.saveSettings')}
                   </Button>
                 </Form.Item>
               </Form>
@@ -315,7 +314,7 @@ const User = () => {
           </Col>
 
           <Col xs={24} md={12}>
-            <Card title="Change Name">
+            <Card title={t('user.changeName')}>
               <Form
                 form={nameForm}
                 name="changeName"
@@ -325,22 +324,22 @@ const User = () => {
               >
                 <Form.Item
                   name="newName"
-                  label="New Name"
+                  label={t('user.newName')}
                   rules={[
-                    { required: true, message: 'Please input your new name!' },
-                    { min: 2, message: 'Name must be at least 2 characters!' }
+                    { required: true, message: t('user.newNameRequired') },
+                    { min: 2, message: t('user.nameMinLength') }
                   ]}
                 >
                   <Input 
                     prefix={<UserOutlined />}
                     size="large"
-                    placeholder="Enter your new name"
+                    placeholder={t('user.enterNewName')}
                   />
                 </Form.Item>
 
                 <Form.Item>
                   <Button type="primary" htmlType="submit" size="large" block>
-                    Change Name
+                    {t('user.changeNameButton')}
                   </Button>
                 </Form.Item>
               </Form>
@@ -348,7 +347,7 @@ const User = () => {
           </Col>
 
           <Col xs={24} md={12}>
-            <Card title="Change Password">
+            <Card title={t('user.changePassword')}>
               <Form
                 form={form}
                 name="changePassword"
@@ -358,9 +357,9 @@ const User = () => {
               >
                 <Form.Item
                   name="currentPassword"
-                  label="Current Password"
+                  label={t('user.currentPassword')}
                   rules={[
-                    { required: true, message: 'Please input your current password!' }
+                    { required: true, message: t('user.currentPasswordRequired') }
                   ]}
                 >
                   <Input.Password 
@@ -371,10 +370,10 @@ const User = () => {
 
                 <Form.Item
                   name="newPassword"
-                  label="New Password"
+                  label={t('user.newPassword')}
                   rules={[
-                    { required: true, message: 'Please input your new password!' },
-                    { min: 6, message: 'Password must be at least 6 characters!' }
+                    { required: true, message: t('user.newPasswordRequired') },
+                    { min: 6, message: t('user.passwordMinLength') }
                   ]}
                 >
                   <Input.Password 
@@ -385,16 +384,16 @@ const User = () => {
 
                 <Form.Item
                   name="confirmPassword"
-                  label="Confirm New Password"
+                  label={t('user.confirmNewPassword')}
                   dependencies={['newPassword']}
                   rules={[
-                    { required: true, message: 'Please confirm your new password!' },
+                    { required: true, message: t('user.confirmNewPasswordRequired') },
                     ({ getFieldValue }) => ({
                       validator(_, value) {
                         if (!value || getFieldValue('newPassword') === value) {
                           return Promise.resolve();
                         }
-                        return Promise.reject(new Error('Passwords do not match!'));
+                        return Promise.reject(new Error(t('user.passwordsDoNotMatch')));
                       },
                     }),
                   ]}
@@ -407,7 +406,7 @@ const User = () => {
 
                 <Form.Item>
                   <Button type="primary" htmlType="submit" size="large" block>
-                    Change Password
+                    {t('user.changePasswordButton')}
                   </Button>
                 </Form.Item>
               </Form>
